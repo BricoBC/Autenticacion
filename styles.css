@@ -3,12 +3,16 @@
     font-family: 'Amatic SC', cursive;
     font-family: 'Bebas Neue', cursive;
 }
+.inactive {
+    display: none;
+}
 .first{
+    background-color: aqua;
     height: 100vh;
-    display: flex;
+    height: 100vh;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 100vh;
+    justify-content: center; */
 }
 .fila{
     display: flex;
@@ -21,7 +25,7 @@
     justify-content: center;
     
 }
-button{
+.btnStart{
     border-color: palevioletred;
     background-color: rgb(255, 255, 255);
     width: 40%;
@@ -32,4 +36,8 @@ button{
 img {
     border-radius: 25%;
     width: 400px;
+}
+.second{
+    height: 500px;
+    background-color: rgb(227, 230, 66);
 }
