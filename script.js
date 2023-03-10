@@ -1,6 +1,6 @@
 const btnStar = document.getElementById('btnStart');
 const btnEnd = document.getElementById('btnEnd');
-
+const clock = document.getElementById('clock')
 
 const recognition = new webkitSpeechRecognition();
 
@@ -36,3 +36,13 @@ users = [
 ]
 
 
+function mueveReloj(){
+    momentoActual = new Date()
+    hora = momentoActual.getHours()
+    minuto = momentoActual.getMinutes()
+    segundo = momentoActual.getSeconds()
+
+    clock.innerText = 'La hora es ' + hora + ':' + minuto + ':' + segundo
+
+    setTimeout("mueveReloj()",1000)
+}
