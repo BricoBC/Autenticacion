@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    font-family: 'Amatic SC', cursive;
+    font-family: 'Bebas Neue', cursive;
+}
+.first{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+.fila{
+    display: flex;
+    justify-content: center;
+}
+.uno{
+    padding: 10px;
+}
+.dos{
+    justify-content: center;
+    
+}
+button{
+    border-color: palevioletred;
+    background-color: rgb(255, 255, 255);
+    width: 40%;
+    height: 45%;
+    border-radius: 25%;
+    cursor: pointer;
+}
+img {
+    border-radius: 25%;
+    width: 400px;
+}
