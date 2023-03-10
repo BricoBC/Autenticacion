@@ -1,5 +1,5 @@
 const btnStar = document.getElementById('btnStart');
-const btnEnd = document.getElementById('btnEnd');
+//const btnEnd = document.getElementById('btnEnd');
 const clock = document.getElementById('clock')
 
 const recognition = new webkitSpeechRecognition();
@@ -14,16 +14,13 @@ btnStar.addEventListener('click', ()=>{
     recognition.start();
 });
 
-btnEnd.addEventListener('click', () => {
-    recognition.abort();
-});
-
 recognition.onresult = (event) => {
     const texto = event.results[event.results.length - 1][0].transcript;
     for(let i = 0; i<phrases.length; i++){
         if (texto == phrases[i])
             alert('Bienvenido sea ' + users[i])
     }
+    console.log(texto)
 }
 
 phrases = [
@@ -34,7 +31,6 @@ phrases = [
 users = [
     'Administrador', 'Ayudante', 'Usuario normal'
 ]
-
 
 function mueveReloj(){
     momentoActual = new Date()
