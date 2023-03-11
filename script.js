@@ -33,6 +33,7 @@ btnStar.addEventListener('click', ()=>{
 
 btnCloseSesion.addEventListener('click', ()=>{
     openView(login_view);
+    document.title ="Iniciar Sesion";
 })
 
 recognition.onresult = (event) => {
@@ -40,7 +41,7 @@ recognition.onresult = (event) => {
     for(let i = 0; i<phrases.length; i++){
         if (texto == phrases[i])
             showSesion(users[i], time() )
-
+            document.title ="Bienvenido " + users[i];
     }
     console.log(texto)
 }
@@ -51,7 +52,7 @@ phrases = [
     'Usuario.'
 ]
 users = [
-    'Administrador', 'Ayudante', 'Usuario normal'
+    'Administrador', 'Ayudante', 'Usuario'
 ]
 
 function showSesion(person, hora){
