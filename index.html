@@ -8,6 +8,9 @@
     <title>Segunda Pagina</title>
 </head>
 <body onload="mueveReloj()">
+    <div id="login-view" class="login inactive">
+        <h2>Vista login</h2>
+    </div>
     <div id="first-view" class="first">
         <div class="container">
             <section class="fila uno">
@@ -18,12 +21,11 @@
             </section>
         </div>
     </div>
-    <div class="second inactive" id="second-view">
+    <div id="second-view" class="second inactive">
         <div class="container">
             <h2 id="welcome"></h2>
             <h2 id="clock_start"> Inicio sesión a las </h2>
-            <button> Ver red </button>
-            <button> Cerrar sesion </button>
+            <button id="btnCloseSesion"> Cerrar sesion </button>
         </div>
     </div>
     <script src="script.js"></script>
