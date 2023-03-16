@@ -1,6 +1,10 @@
 const btnStar = document.getElementById('btnStart');
 const clock = document.getElementById('clock')
-const login_view = document.getElementById('login-view')
+const login_view = document.getElementById('login-view'),
+    $submit = document.getElementById("submit"),
+    password = document.getElementById("password"),
+    username = document.getElementById("username"),
+    $visible = document.getElementById("visible");
 const first_view = document.getElementById('first-view');
 const second_view = document.getElementById('second-view');
 const welcome = document.getElementById('welcome');
@@ -10,11 +14,6 @@ const btnCloseSesion = document.getElementById('btnCloseSesion')
 const recognition = new webkitSpeechRecognition();
 
 const arrAllViews = [first_view, second_view, login_view]
-
-const $submit = document.getElementById("submit"),
-    $password = document.getElementById("password"),
-    $username = document.getElementById("username"),
-    $visible = document.getElementById("visible");
 
 phrases = [
     'Soy el ingeniero Bruno Nicolás Barajas Correa.',
@@ -31,18 +30,18 @@ passwords = [
 ]
 document.addEventListener("change", (e)=>{
         if(e.target === $visible){
-            if($visible.checked === false) $password.type ="password";
+            if($visible.checked === false) password.type ="password";
             else $password.type = "text";
         }
 });
 
-document.addEventListener("click", (e)=>{
+login_view.addEventListener("click", (e)=>{
     if(e.target === $submit){
-        if(isValidLogin($username,$password)){
+        if(isValidLogin(username,password)){
             e.preventDefault();
             openView(first_view);
-            document.title ="Autenticación por frase";
-        }   
+            document.title ="Login mediante frase";
+        }
         else{
             alert('Revisa tu usuario y contraseña')
         }
@@ -80,6 +79,8 @@ btnStar.addEventListener('click', ()=>{
 btnCloseSesion.addEventListener('click', ()=>{
     openView(login_view);
     document.title ="Iniciar Sesion";
+    username.value = "";
+    password.value = "";
 })
 
 recognition.onresult = (event) => {
@@ -91,9 +92,6 @@ recognition.onresult = (event) => {
     }
     console.log(texto)
 }
-
-
-
 function showSesion(person, hora){
     second_view.classList.remove('inactive');
     first_view.classList.add('inactive');
