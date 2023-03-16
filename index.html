@@ -8,19 +8,31 @@
     <title>Segunda Pagina</title>
 </head>
 <body onload="mueveReloj()">
-    <div id="login-view" class="login inactive">
-        <h2>Vista login</h2>
-    </div>
-    <div id="first-view" class="first">
-        <div class="container">
+    <!-- PRIMERA INTERFAZ -->
+    <form id="login-view" class="login" >
+        <img src="./img/user.png" alt="user-img">
+        <label for="username">Usario</label>
+        <input type="text" id="username" placeholder="Ejemplo" required>
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <div class="box-visible">
+            <input type="checkbox" id="visible">
+            <label for="visible">Mostrar Contraseña</label>
+        </div>
+        <button type="submit" id="submit">Iniciar Sesion</button>
+    </form>
+    <!-- SEGUNDA INTERFAZ -->
+    <div id="first-view" class="first inactive">
+        
             <section class="fila uno">
                 <h2 id="clock">La hora es</h2>
             </section>
             <section class="fila dos">
                 <button class="btnStart" id="btnStart"><img src="https://img.freepik.com/vector-premium/microfono-microfono-estilo-dibujo-ilustracion-vectorial_490811-1906.jpg" alt="microfono"></button>
             </section>
-        </div>
+        
     </div>
+    <!-- VISTA PRINCIPAL -->
     <div id="second-view" class="second inactive">
         <div class="container">
             <h2 id="welcome"></h2>
@@ -54,7 +66,7 @@
                     <td colspan="2">Máquina #1</td>
                   </tr>
                   <tr>
-                      <td>Dirección IP:</td>
+                    <td>Dirección IP:</td>
                     <td>192.168.10.10</td>
                   </tr>
               </table>

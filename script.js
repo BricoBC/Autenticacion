@@ -11,6 +11,27 @@ const recognition = new webkitSpeechRecognition();
 
 const arrAllViews = [first_view, second_view, login_view]
 
+const $submit = document.getElementById("submit"),
+    $password = document.getElementById("password"),
+    $username = document.getElementById("username"),
+    $visible = document.getElementById("visible");
+
+document.addEventListener("change", (e)=>{
+        if(e.target === $visible){
+            if($visible.checked === false) $password.type ="password";
+            else $password.type = "text";
+        }
+});
+
+document.addEventListener("click", (e)=>{
+    if(e.target === $submit){
+        if($password.value !== "" && $username.value !== ""){
+            e.preventDefault();
+            openView(first_view);
+        }
+    }
+})
+// Función que nos permitirá ver cierta página
 function openView(view){
     for(let i = 0 ; i < arrAllViews.length; i++){
         if(view == arrAllViews[i])
