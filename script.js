@@ -16,6 +16,19 @@ const $submit = document.getElementById("submit"),
     $username = document.getElementById("username"),
     $visible = document.getElementById("visible");
 
+phrases = [
+    'Soy el ingeniero Bruno Nicolás Barajas Correa.',
+    'Soy el ayudante del ingeniero, me llamo Eduardo García Marín.',
+    'Usuario.'
+]
+users = [
+    'Administrador', 'Ayudante', 'Usuario'
+]
+passwords = [
+    '25$eptember2000!',
+    '29Enero2000',
+    '16)ecember2000'
+]
 document.addEventListener("change", (e)=>{
         if(e.target === $visible){
             if($visible.checked === false) $password.type ="password";
@@ -25,12 +38,24 @@ document.addEventListener("change", (e)=>{
 
 document.addEventListener("click", (e)=>{
     if(e.target === $submit){
-        if($password.value !== "" && $username.value !== ""){
+        if(isValidLogin($username,$password)){
             e.preventDefault();
             openView(first_view);
+            document.title ="Autenticación por frase";
+        }   
+        else{
+            alert('Revisa tu usuario y contraseña')
         }
     }
 })
+
+function isValidLogin(user, pass){
+    for(let i=0; i<users.length; i++)
+    if(user.value == users[i] && pass.value == passwords[i]){
+        return true
+    }
+    else return false
+}
 // Función que nos permitirá ver cierta página
 function openView(view){
     for(let i = 0 ; i < arrAllViews.length; i++){
@@ -67,14 +92,7 @@ recognition.onresult = (event) => {
     console.log(texto)
 }
 
-phrases = [
-    'Soy el ingeniero Bruno Nicolás Barajas Correa.',
-    'Soy el ayudante del ingeniero, me llamo Eduardo García Marín.',
-    'Usuario.'
-]
-users = [
-    'Administrador', 'Ayudante', 'Usuario'
-]
+
 
 function showSesion(person, hora){
     second_view.classList.remove('inactive');
