@@ -127,16 +127,26 @@ const btnSwitch = document.getElementById('switchs'),
     tableMachines = document.getElementById('tableMachines'),
     tableRouterUno = document.getElementById('tableRouterUno');
     
+    arrAllViewsOfRouters = [
+        tableRouterUno
+    ]
     arrAllViewsOfSetting = [
-        tableRouterUno, tableSwitchs, tableMachines
+        tableSwitchs, tableMachines
     ]
 
     btnSwitch.addEventListener('click', toggleSwitch);
     btnMachines.addEventListener('click', toggleMachines);
-    btnRouterUno.addEventListener('click', toggleRouter);
+    btnRouterUno.addEventListener('click', openRouter);
 
-    function toggleRouter(){
-        closeViews(tableRouterUno, arrAllViewsOfSetting, btnRouterUno, 'Ver router #1')
+    function openRouter(){
+        const isViewOfRouterClosed = tableRouterUno.classList.contains('inactive');
+        if (!isViewOfRouterClosed){
+            tableRouterUno.classList.toggle('inactive');
+        }
+        else{
+            tableRouterUno.classList.remove('inactive');
+        }
+    
     }
 
     function toggleSwitch(){
