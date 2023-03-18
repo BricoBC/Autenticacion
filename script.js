@@ -17,7 +17,7 @@ const arrAllViews = [first_view, second_view, login_view]
 
 phrases = [
     'Soy el ingeniero Bruno Nicolás Barajas Correa.',
-    'Soy el ayudante del ingeniero, me llamo Eduardo García Marín.',
+    'Soy Eduardo García Marín, el ayudante.',
     'Usuario.'
 ]
 users = [
@@ -91,12 +91,13 @@ btnCloseSesion.addEventListener('click', ()=>{
 
 recognition.onresult = (event) => {
     const texto = event.results[event.results.length - 1][0].transcript;
+    console.log(texto)
     for(let i = 0; i<phrases.length; i++){
         if (texto == phrases[who])
             showSesion(users[who], time() )
             document.title ="Bienvenido " + users[who];
     }
-    console.log(texto)
+    
 }
 function showSesion(person, hora){
     second_view.classList.remove('inactive');
@@ -117,3 +118,47 @@ function mueveReloj(){
     clock.innerText = 'La hora es ' + time()
     setTimeout("mueveReloj()",1000)
 }
+
+//Lógica y funciones para la configuración
+const btnSwitch = document.getElementById('switchs'),
+    btnMachines = document.getElementById('machines'),
+    btnRouterUno = document.getElementById('routerUno'),
+    tableSwitchs = document.getElementById('tableSwitchs'),
+    tableMachines = document.getElementById('tableMachines'),
+    tableRouterUno = document.getElementById('tableRouterUno');
+    
+    arrAllViewsOfSetting = [
+        tableRouterUno, tableSwitchs, tableMachines
+    ]
+
+    btnSwitch.addEventListener('click', toggleSwitch);
+    btnMachines.addEventListener('click', toggleMachines);
+    btnRouterUno.addEventListener('click', toggleRouter);
+
+    function toggleRouter(){
+        closeViews(tableRouterUno, arrAllViewsOfSetting, btnRouterUno, 'Ver router #1')
+    }
+
+    function toggleSwitch(){
+        closeViews(tableSwitchs, arrAllViewsOfSetting, btnSwitch, 'Ver Switchs')
+        
+    }
+    function toggleMachines(){
+        closeViews(tableMachines, arrAllViewsOfSetting, btnMachines, 'Ver Machines')
+    }
+
+    function closeViews(element , arrViews, btn, txtShow){
+        let isTheElementOpen = element.classList.contains('inactive');
+        if(!isTheElementOpen){
+            element.classList.add('inactive');
+            btn.innerText = txtShow;
+        }
+        else{
+            for (let views of arrViews){
+                (views==element)? views.classList.remove('inactive'): views.classList.add('inactive');   
+                btn.innerText = 'Ocultar';
+            }
+        }
+    }
+
+    
