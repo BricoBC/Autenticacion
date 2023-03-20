@@ -142,11 +142,16 @@ const btnSwitch = document.getElementById('switchs'),
         const isViewOfRouterClosed = tableRouterUno.classList.contains('inactive');
         if (!isViewOfRouterClosed){
             tableRouterUno.classList.toggle('inactive');
+            if(btnSwitch.innerText == 'Ocultar'){
+                toggleSwitch();
+            }
+            if(btnMachines.innerText == 'Ocultar'){
+                toggleMachines();
+            }
         }
         else{
             tableRouterUno.classList.remove('inactive');
         }
-    
     }
 
     function toggleSwitch(){
