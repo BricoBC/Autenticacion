@@ -166,8 +166,18 @@ const btnSwitch = document.getElementById('switchs'),
         else{
             for (let views of arrViews){
                 (views==element)? views.classList.remove('inactive'): views.classList.add('inactive');   
+                putText();
                 btn.innerText = 'Ocultar';
             }
+        }
+    }
+
+    function putText(){
+        if (btnSwitch.innerText == 'Ocultar'){
+            btnSwitch.innerText = 'Ver Switch';
+        }
+        if(btnMachines.innerText == 'Ocultar'){
+            btnMachines.innerText = 'Ver máquinas'
         }
     }
 
