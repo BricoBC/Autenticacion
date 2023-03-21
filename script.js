@@ -186,4 +186,53 @@ const btnSwitch = document.getElementById('switchs'),
         }
     }
 
-    
+    // <button id="routerUno">Ver Router</button>
+    //         <!-- Configuración -->
+    //         <div id="tableRouterUno" class="inactive">
+    //             <table>
+    //                 <caption>Configuración Router CDMX </caption>
+    //                 <tr>
+    //                     <td>Dirección IP: </td>
+    //                     <td>192.168.20.1</td>
+    //                 </tr>
+    //                 <tr>
+    //                     <td>Contraseña vty 0 4</td>
+    //                     <td>1234</td>
+    //                 </tr>
+    //                 <tr>
+    //                     <td>Mensaje del día: </td>
+    //                     <td>"Sólo el administrador puede hacer modificaciones en el Router CDMX"</td>
+    //                 </tr>
+    //             </table>
+    //             <section class="botones">
+    //                 <button id="switchs" class="btn Switch">Ver Switchs</button>
+    //                 <button id="machines" class="btn Machines">Ver máquinas</button>
+    //             </section>
+    //         </div>
+    //         <table id="tableSwitchs" class="inactive">
+    //             <caption>Configuración de los Switchs</caption>
+    //             <td></td><td>Switch #1</td>
+    //             <tr>
+    //                 <td>Dirección IP:</td>
+    //                 <td>192.168.10.1</td>
+    //             </tr>
+    //         </table>
+    //         <table id="tableMachines" class="inactive">
+    //             <caption>Configuración de las máquinas</caption>
+    //             <td></td>
+    //             <td >Maquina #1</td>
+    //             <td >Maquina #2</td>
+    //             <tr>
+    //                 <td>IPv4 Addres:</td>
+    //                 <td>192.168.10.10</td>
+    //                 <td>192.168.10.11</td>
+    //             </tr>
+    //             <tr>
+    //                 <td>Subnet Mask:</td>
+    //                 <td colspan="2">255.255.255.0</td>
+    //             </tr>
+    //             <tr>
+    //                 <td>Default Gateway:</td>
+    //                 <td colspan="2">192.168.10.1</td>
+    //             </tr>
+    //         </table>
