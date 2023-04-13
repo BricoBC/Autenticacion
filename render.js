@@ -92,6 +92,7 @@ let config_red = {
         "r3": ["172.15.110.30", "172.15.110.31", "172.15.110.32"]
     }
 };
+let k = 1;
 function renderConfig(obj){
     for (let i = 0; i < config_red.router.name.length; i++){            
         const buttonRouter = document.createElement('button');
@@ -186,38 +187,60 @@ function renderConfig(obj){
         }   
 
         tableSwitchs.append(captionConfSwitch, thBodySwich);
+// Render de las tablas de máquinas
+        const tableMachines = document.createElement('table');
+        tableMachines.classList.add('inactive');
+        tableMachines.setAttribute("id", "tableMachines");
+
+        const captionMachines = document.createElement('caption');
+        captionMachines.innerText = 'Configuración de las máquinas del router ' + config_red.router.name[i];
+
+        route = Object.keys(config_red.maquinas)[i];
+
+        const tdVacio = document.createElement('td');
+        tableMachines.append(captionMachines, tdVacio);
+        for(let j = 0; j < config_red['maquinas'][route].length; j++){
+            const tdNum = document.createElement('td');
+            tdNum.innerText = 'Maquina ' + (j + 1);
+            tableMachines.appendChild(tdNum);
+        }
+
+        const trIpv4 = document.createElement('tr');
+        const tdTitleIpv4 = document.createElement('td');
+        tdTitleIpv4.innerText = 'IPv4 Addres: ';
+        trIpv4.append(tdTitleIpv4);
+        for(let j = 0; j < config_red['maquinas'][route].length; j++){
+            const tdIp = document.createElement('td');
+            tdIp.innerText = config_red['maquinas'][route][j];
+            trIpv4.append(tdIp);
+        }
+
+        const trSubnet = document.createElement('tr');
+            const tdTitleSubnet = document.createElement('td');
+            tdTitleSubnet.innerText = 'Subnet Mask: '
+
+            const tdValueSubnet = document.createElement('td');
+            tdValueSubnet.setAttribute("colspan", "3");
+            tdValueSubnet.innerText = config_red.switch.subnet_mask
 
 
-        sectRender.append(buttonRouter, tableRouter, tableSwitchs);
-        //2 del primero (boton, div.tableRouter), 
+            trSubnet.append(tdTitleSubnet, tdValueSubnet);
 
-        //------------------------SECCIÓN DE TABLAS
+        const trDefGat = document.createElement('tr');
+            const tdTitleDefGat = document.createElement('td');
+            tdTitleDefGat.innerText = 'Default Gateway: '
+
+            const tdValueDefGat = document.createElement('td');
+            tdValueDefGat.setAttribute("colspan", "3");
+            tdValueDefGat.innerText = config_red.switch.id[k]
+            k= k+2;
+
+            trDefGat.append(tdTitleDefGat, tdValueDefGat);
+        
+        tableMachines.append(trIpv4, trSubnet, trDefGat);
+
+    sectRender.append(buttonRouter, tableRouter, tableSwitchs, tableMachines);
 
     }
 }
-
     renderConfig(config_red);
-
-    // <button id="routerUno">Ver Router</button>
-    //     <!-- Configuración -->
-    //     <div id="tableRouterUno" class="inactive">
-    //         <table>
-    //             <caption>Configuración Router 0 </caption>
-    //             <tr>
-    //                 <td>Dirección IP: </td>
-    //                 <td>172.15.100.1</td>
-    //             </tr>
-    //             <tr>
-    //                 <td>Contraseña vty 0 4</td>
-    //                 <td>1234</td>
-    //             </tr>
-    //             <tr>
-    //                 <td>Mensaje del día: </td>
-    //                 <td>"Sólo el administrador puede hacer modificaciones en el Router CDMX"</td>
-    //             </tr>
-    //         </table>
-    //         <section class="botones">
-    //             <button id="switchs" class="btn Switch">Ver Switchs</button>
-    //             <button id="machines" class="btn Machines">Ver máquinas</button>
-    //         </section>
-    //     </div>
