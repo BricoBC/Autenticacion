@@ -153,40 +153,64 @@ const btnRouterTres = document.getElementById('routerTres'),
     ];
 
     //btnSwitchRouterUno.addEventListener('click', toggleSwitch(tableSwitchsRouterUno, btnSwitchRouterUno));
-    // btnMachinesRouterUno.addEventListener('click', toggleMachines(tableMachinesRouterUno, btnMachinesRouterUno));
     btnRouterUno.addEventListener('click', openTableR1);
+    btnSwitchRouterUno.addEventListener('click', openTableSwitchR1);
+    btnMachinesRouterUno.addEventListener('click', openTableMachinesR1);
     
     btnRouterDos.addEventListener('click', openTableR2);
+    btnSwitchRouterDos.addEventListener('click', openTableSwitchR2);
+    btnMachinesRouterDos.addEventListener('click', openTableMachinesR2);
 
     btnRouterTres.addEventListener('click', openTableR3);
-
+    btnSwitchRouterTres.addEventListener('click', openTableSwitchR3);
+    btnMachinesRouterTres.addEventListener('click', openTableMachinesR3);
 
     function openTableR1(){
-        openViewTables(tableRouterUno);
+        openViewTables(tableRouterUno, arrAllViewsOfRouters);
     }
+    function openTableSwitchR1(){
+        openViewTables(tableSwitchsRouterUno, arrAllViewsOfSetting);
+    }
+    function openTableMachinesR1(){
+        openViewTables(tableMachinesRouterUno, arrAllViewsOfSetting);
+    }
+    
 
     function openTableR2(){
-        openViewTables(tableRouterDos);
+        openViewTables(tableRouterDos, arrAllViewsOfRouters);
+    }
+    function openTableSwitchR2(){
+        openViewTables(tableSwitchsRouterDos, arrAllViewsOfSetting);
+    }
+    function openTableMachinesR2(){
+        openViewTables(tableMachinesRouterDos, arrAllViewsOfSetting);
     }
 
     function openTableR3(){
-        openViewTables(tableRouterTres);
+        openViewTables(tableRouterTres, arrAllViewsOfRouters);
+    }
+    function openTableSwitchR3(){
+        openViewTables(tableSwitchsRouterTres, arrAllViewsOfSetting);
+    }
+    function openTableMachinesR3(){
+        openViewTables(tableMachinesRouterTres, arrAllViewsOfSetting);
     }
 
-    function openTable(table, btnUno, btnDos ){
-        const isViewOfRouterClosed = table.classList.contains('inactive');
-        if (!isViewOfRouterClosed){
-            table.classList.toggle('inactive')
-        }
-        else{
-            table.classList.remove('inactive');
-        }
-    }
+    // function openTable(table, btnUno, btnDos ){
+    //     const isViewOfRouterClosed = table.classList.contains('inactive');
+    //     if (!isViewOfRouterClosed){
+    //         table.classList.toggle('inactive')
+    //     }
+    //     else{
+    //         table.classList.remove('inactive');
+    //     }
+    // }
 
-    function openViewTables(table){
+
+    function openViewTables(table, arrAllViews){
         let isTheTableOpen = !table.classList.contains('inactive');
         if(!isTheTableOpen){
-            for (let views of arrAllViewsOfRouters){
+            for (let views of arrAllViews){
                 (views == table)? views.classList.remove('inactive'): views.classList.add('inactive');       
             }            
         }
@@ -198,14 +222,10 @@ const btnRouterTres = document.getElementById('routerTres'),
         closeViews(table, arrAllViewsOfSetting, btnSwitch, 'Ver Switchs');    
     }
 
-    function toggleMachines(table, btnMachines){
-        closeViews(table, arrAllViewsOfSetting, btnMachines, 'Ver Machines');
-    }
-
-    function closeViews(element , arrViews, btn, txtShow){
-        let isTheElementOpen = element.classList.contains('inactive');
+    function openViews(element , arrViews, btn, txtShow){
+        let isTheElementOpen = !element.classList.contains('inactive');
         if(!isTheElementOpen){
-            element.classList.add('inactive');
+            element.classList.toggle('inactive');
             btn.innerText = txtShow;
         }
         else{
