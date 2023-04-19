@@ -152,6 +152,12 @@ const btnRouterTres = document.getElementById('routerTres'),
         tableSwitchsRouterTres, tableMachinesRouterTres
     ];
 
+    const arrAllButtons = [
+        btnRouterUno, btnSwitchRouterUno, btnMachinesRouterUno,
+        btnRouterDos, btnSwitchRouterDos, btnMachinesRouterDos,
+        btnRouterTres, btnSwitchRouterTres, btnMachinesRouterTres,
+    ]
+
     //btnSwitchRouterUno.addEventListener('click', toggleSwitch(tableSwitchsRouterUno, btnSwitchRouterUno));
     btnRouterUno.addEventListener('click', openTableR1);
     btnSwitchRouterUno.addEventListener('click', openTableSwitchR1);
@@ -170,9 +176,11 @@ const btnRouterTres = document.getElementById('routerTres'),
     }
     function openTableSwitchR1(){
         openViewTables(tableSwitchsRouterUno, arrAllViewsOfSetting);
+        putTextToButtons(btnSwitchRouterUno, tableSwitchsRouterUno, 'Ver Switch');
     }
     function openTableMachinesR1(){
         openViewTables(tableMachinesRouterUno, arrAllViewsOfSetting);
+        putTextToButtons(btnMachinesRouterUno, tableMachinesRouterUno, 'Ver máquinas');
     }
     
 
@@ -214,34 +222,37 @@ const btnRouterTres = document.getElementById('routerTres'),
                 (views == table)? views.classList.remove('inactive'): views.classList.add('inactive');       
             }            
         }
-        else
+        else{
             table.classList.toggle('inactive')
+
+        }
     }
 
-    function toggleSwitch(table, btnSwitch){
-        closeViews(table, arrAllViewsOfSetting, btnSwitch, 'Ver Switchs');    
-    }
+    // function toggleSwitch(table, btnSwitch){
+    //     closeViews(table, arrAllViewsOfSetting, btnSwitch, 'Ver Switchs');    
+    // }
 
-    function openViews(element , arrViews, btn, txtShow){
-        let isTheElementOpen = !element.classList.contains('inactive');
-        if(!isTheElementOpen){
-            element.classList.toggle('inactive');
-            btn.innerText = txtShow;
+    // function openViews(element , arrViews, btn, txtShow){
+    //     let isTheElementOpen = !element.classList.contains('inactive');
+    //     if(!isTheElementOpen){
+    //         element.classList.toggle('inactive');
+    //         btn.innerText = txtShow;
+    //     }
+    //     else{
+    //         for (let views of arrViews){
+    //             (views == element)? views.classList.remove('inactive'): views.classList.add('inactive');   
+    //             putText();
+    //             btn.innerText = 'Ocultar';
+    //         }
+    //     }
+    // }
+
+    function putTextToButtons(btn, tableOfButton, textToSee){
+        let isTheTableShow = !tableOfButton.classList.contains('inactive');
+        if (isTheTableShow){
+            btn.innerText = 'Ocultar';
         }
         else{
-            for (let views of arrViews){
-                (views == element)? views.classList.remove('inactive'): views.classList.add('inactive');   
-                putText();
-                btn.innerText = 'Ocultar';
-            }
-        }
-    }
-
-    function putText(btnMachines, btnSwitch){
-        if (btnSwitch.innerText == 'Ocultar'){
-            btnSwitch.innerText = 'Ver Switch';
-        }
-        if(btnMachines.innerText == 'Ocultar'){
-            btnMachines.innerText = 'Ver máquinas'
+            btn.innerText = textToSee;
         }
     }
