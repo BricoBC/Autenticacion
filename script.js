@@ -1,15 +1,15 @@
 const clock = document.getElementById('clock')
 const login_view = document.getElementById('login-view'),
-$submit = document.getElementById("submit"),
-password = document.getElementById("password"),
-username = document.getElementById("username"),
-$visible = document.getElementById("visible");
+    $submit = document.getElementById("submit"),
+    password = document.getElementById("password"),
+    username = document.getElementById("username"),
+    $visible = document.getElementById("visible");
 const first_view = document.getElementById('first-view'),
-btnStar = document.getElementById('btnStart');
+    btnStar = document.getElementById('btnStart');
 const second_view = document.getElementById('second-view'),
-btnCloseSesion = document.getElementById('btnCloseSesion'),
-welcome = document.getElementById('welcome'),
-clock_start = document.getElementById('clock_start');
+    btnCloseSesion = document.getElementById('btnCloseSesion'),
+    welcome = document.getElementById('welcome'),
+    clock_start = document.getElementById('clock_start');
 let who = 0;
 const recognition = new webkitSpeechRecognition();
 
@@ -32,10 +32,10 @@ passwords = [
 ]
 
 document.addEventListener("change", (e)=>{
-    if(e.target === $visible){
-        if($visible.checked === false) password.type ="password";
-        else password.type = "text";
-    }
+        if(e.target === $visible){
+            if($visible.checked === false) password.type ="password";
+            else password.type = "text";
+        }
 });
 
 login_view.addEventListener("click", (e)=>{
@@ -56,13 +56,13 @@ login_view.addEventListener("click", (e)=>{
 function isValidLogin(user, pass){
     for(let i=0; i<users.length; i++){
         if(user.value == users[i] && pass.value == passwords[i])
-        {
-            who = i;
-            return true;
+            {
+                who = i;
+                return true;
+            }
         }
+        return false;
     }
-    return false;
-}
 // Función que nos permitirá ver cierta página
 function openView(view){
     for(let i = 0 ; i < arrAllViews.length; i++){
@@ -74,114 +74,132 @@ function openView(view){
         }
         console.log(arrAllViews[i])
     }
-    }
-    recognition.continuos = true;
-    recognition.lang = 'es-Es';
-    recognition.interimResults = false;
-    
-    
-    btnStar.addEventListener('click', ()=>{
-        recognition.start();
-    });
-    
-    btnCloseSesion.addEventListener('click', ()=>{
-        openView(login_view);
-        document.title ="Iniciar Sesion";
-    })
-    
-    recognition.onresult = (event) => {
-        const texto = event.results[event.results.length - 1][0].transcript;
-        console.log(texto)
-        for(let i = 0; i<phrases.length; i++){
-            if (texto == phrases[who])
+}
+recognition.continuos = true;
+recognition.lang = 'es-Es';
+recognition.interimResults = false;
+
+
+btnStar.addEventListener('click', ()=>{
+    recognition.start();
+});
+
+btnCloseSesion.addEventListener('click', ()=>{
+    openView(login_view);
+    document.title ="Iniciar Sesion";
+})
+
+recognition.onresult = (event) => {
+    const texto = event.results[event.results.length - 1][0].transcript;
+    console.log(texto)
+    for(let i = 0; i<phrases.length; i++){
+        if (texto == phrases[who])
             showSesion(users[who], time() )
             document.title ="Bienvenido " + users[who];
-        }
-        
-    }
-    function showSesion(person, hora){
-        second_view.classList.remove('inactive');
-        first_view.classList.add('inactive');
-        welcome.innerText = 'Bienvenido sea ' + person
-        clock_start.innerText = 'Inicio sesión a las ' + hora
     }
     
-    function time(){
-        momentoActual = new Date()
-        hora = momentoActual.getHours()
-        minuto = momentoActual.getMinutes()
-        segundo = momentoActual.getSeconds()
-        return hora + ':' + minuto + ':' + segundo
-    }
-    
-    function mueveReloj(){
-        clock.innerText = 'La hora es ' + time()
-        setTimeout("mueveReloj()",1000)
-    }
-    
-    //Lógica y funciones para la configuración
-    fetch('routerUno.html')
-        .then(response => response.text())
-        .then(data => {
-            const parser = new DOMParser();
-            const contenido = parser.parseFromString(data, 'text/html');
-            const elemento = contenido.getElementById('ELEMENTO');
+}
+function showSesion(person, hora){
+    second_view.classList.remove('inactive');
+    first_view.classList.add('inactive');
+    welcome.innerText = 'Bienvenido sea ' + person
+    clock_start.innerText = 'Inicio sesión a las ' + hora
+}
 
-            document.getElementById('htmlRouterUno').appendChild(elemento);
+function time(){
+    momentoActual = new Date()
+    hora = momentoActual.getHours()
+    minuto = momentoActual.getMinutes()
+    segundo = momentoActual.getSeconds()
+    return hora + ':' + minuto + ':' + segundo
+}
 
+function mueveReloj(){
+    clock.innerText = 'La hora es ' + time()
+    setTimeout("mueveReloj()",1000)
+}
 
-            btn = contenido.getElementById('switchs')
-            addBtnSwich(btn);
-        });
-
-        arrAllViewsOfRouters = []
-        arrAllBtnSwich = []
-
-
-    const btnSwitch = document.getElementById('switchs'),
-    btnMachines = document.getElementById('machines'),
-    btnRouterUno = document.getElementById('routerUno'),
+//Lógica y funciones para la configuración
+const btnRouterUno = document.getElementById('routerUno'),
+    btnSwitchRouterUno = document.getElementById('switchsRouterUno'),
+    btnMachinesRouterUno = document.getElementById('machinesRouterUno'),
+    tableSwitchsRouterUno = document.getElementById('tableSwitchsRouterUno'),
     tableRouterUno = document.getElementById('tableRouterUno'),
-    tableSwitchs = document.getElementById('tableSwitchs'),
-    tableMachines = document.getElementById('tableMachines');
+    tableMachinesRouterUno = document.getElementById('tableMachinesRouterUno');
+
+const btnRouterDos = document.getElementById('routerDos'),
+    btnSwitchRouterDos = document.getElementById('switchsRouterDos'),
+    btnMachinesRouterDos = document.getElementById('machinesRouterDos'),
+    tableSwitchsRouterDos = document.getElementById('tableSwitchsRouterDos'),
+    tableRouterDos = document.getElementById('tableRouterDos'),
+    tableMachinesRouterDos = document.getElementById('tableMachinesRouterDos');
+
+const btnRouterTres = document.getElementById('routerTres'),
+    btnSwitchRouterTres = document.getElementById('switchsRouterTres'),
+    btnMachinesRouterTres = document.getElementById('machinesRouterTres'),
+    tableSwitchsRouterTres = document.getElementById('tableSwitchsRouterTres'),
+    tableRouterTres = document.getElementById('tableRouterTres'),
+    tableMachinesRouterTres = document.getElementById('tableMachinesRouterTres');
     
-    // arrAllViewsOfRouters = [
-    //     tableRouterUno//, tableRouter1, tableRouter2, tableRouter3
-    // ]
-    // arrAllViewsOfSetting = [
-    //     tableSwitchs, tableMachines,
-    //     // tableSwitchsR1, tableMachinesR1, 
-    //     // tableSwitchsR2, tableMachinesR2, 
-    //     // tableSwitchsR3, tableMachinesR3
-    // ]
+    
+    const arrAllViewsOfRouters = [
+        tableRouterUno, tableRouterDos, tableRouterTres
+    ];
+
+    const arrAllViewsOfSetting = [
+        tableSwitchsRouterUno, tableMachinesRouterUno,
+        tableSwitchsRouterDos, tableMachinesRouterDos,
+        tableSwitchsRouterTres, tableMachinesRouterTres
+    ];
+
+    //btnSwitchRouterUno.addEventListener('click', toggleSwitch(tableSwitchsRouterUno, btnSwitchRouterUno));
+    // btnMachinesRouterUno.addEventListener('click', toggleMachines(tableMachinesRouterUno, btnMachinesRouterUno));
+    btnRouterUno.addEventListener('click', openTableR1);
+    
+    btnRouterDos.addEventListener('click', openTableR2);
+
+    btnRouterTres.addEventListener('click', openTableR3);
 
 
-    // arrAllBtnSwich[0].addEventListener('click', toggleSwitch);
-    // btnMachines.addEventListener('click', toggleMachines);
-    // btnRouterUno.addEventListener('click', openRouter);
+    function openTableR1(){
+        openViewTables(tableRouterUno);
+    }
 
-    function openRouter(){
-        const isViewOfRouterClosed = tableRouterUno.classList.contains('inactive');
+    function openTableR2(){
+        openViewTables(tableRouterDos);
+    }
+
+    function openTableR3(){
+        openViewTables(tableRouterTres);
+    }
+
+    function openTable(table, btnUno, btnDos ){
+        const isViewOfRouterClosed = table.classList.contains('inactive');
         if (!isViewOfRouterClosed){
-            tableRouterUno.classList.toggle('inactive');
-            if(btnSwitch.innerText == 'Ocultar'){
-                toggleSwitch();
-            }
-            if(btnMachines.innerText == 'Ocultar'){
-                toggleMachines();
-            }
+            table.classList.toggle('inactive')
         }
         else{
-            tableRouterUno.classList.remove('inactive');
+            table.classList.remove('inactive');
         }
     }
 
-    function toggleSwitch(){
-        closeViews(tableSwitchs, arrAllViewsOfSetting, btnSwitch, 'Ver Switchs')
-        
+    function openViewTables(table){
+        let isTheTableOpen = !table.classList.contains('inactive');
+        if(!isTheTableOpen){
+            for (let views of arrAllViewsOfRouters){
+                (views == table)? views.classList.remove('inactive'): views.classList.add('inactive');       
+            }            
+        }
+        else
+            table.classList.toggle('inactive')
     }
-    function toggleMachines(){
-        closeViews(tableMachines, arrAllViewsOfSetting, btnMachines, 'Ver Machines')
+
+    function toggleSwitch(table, btnSwitch){
+        closeViews(table, arrAllViewsOfSetting, btnSwitch, 'Ver Switchs');    
+    }
+
+    function toggleMachines(table, btnMachines){
+        closeViews(table, arrAllViewsOfSetting, btnMachines, 'Ver Machines');
     }
 
     function closeViews(element , arrViews, btn, txtShow){
@@ -192,14 +210,14 @@ function openView(view){
         }
         else{
             for (let views of arrViews){
-                (views==element)? views.classList.remove('inactive'): views.classList.add('inactive');   
+                (views == element)? views.classList.remove('inactive'): views.classList.add('inactive');   
                 putText();
                 btn.innerText = 'Ocultar';
             }
         }
     }
 
-    function putText(){
+    function putText(btnMachines, btnSwitch){
         if (btnSwitch.innerText == 'Ocultar'){
             btnSwitch.innerText = 'Ver Switch';
         }
