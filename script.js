@@ -173,14 +173,17 @@ const btnRouterTres = document.getElementById('routerTres'),
 
     function openTableR1(){
         openViewTables(tableRouterUno, arrAllViewsOfRouters);
+        putTextToButtons(btnRouterUno, tableRouterUno, 'Router CDMX');
     }
     function openTableSwitchR1(){
         openViewTables(tableSwitchsRouterUno, arrAllViewsOfSetting);
-        putTextToButtons(btnSwitchRouterUno, tableSwitchsRouterUno, 'Ver Switch');
+        putTextSwitchAndMachines(btnSwitchRouterUno, 
+            btnMachinesRouterUno, tableSwitchsRouterUno, tableMachinesRouterUno );
     }
     function openTableMachinesR1(){
         openViewTables(tableMachinesRouterUno, arrAllViewsOfSetting);
-        putTextToButtons(btnMachinesRouterUno, tableMachinesRouterUno, 'Ver máquinas');
+        putTextSwitchAndMachines(btnMachinesRouterUno, 
+            btnSwitchRouterUno, tableMachinesRouterUno, tableSwitchsRouterUno );
     }
     
 
@@ -189,9 +192,13 @@ const btnRouterTres = document.getElementById('routerTres'),
     }
     function openTableSwitchR2(){
         openViewTables(tableSwitchsRouterDos, arrAllViewsOfSetting);
+        putTextSwitchAndMachines(btnSwitchRouterDos, 
+            btnMachinesRouterDos, tableSwitchsRouterDos, tableMachinesRouterDos );
     }
     function openTableMachinesR2(){
         openViewTables(tableMachinesRouterDos, arrAllViewsOfSetting);
+        putTextSwitchAndMachines(btnMachinesRouterDos, 
+            btnSwitchRouterDos, tableMachinesRouterDos, tableSwitchsRouterDos );
     }
 
     function openTableR3(){
@@ -199,9 +206,13 @@ const btnRouterTres = document.getElementById('routerTres'),
     }
     function openTableSwitchR3(){
         openViewTables(tableSwitchsRouterTres, arrAllViewsOfSetting);
+        putTextSwitchAndMachines(btnSwitchRouterTres, 
+            btnMachinesRouterTres, tableSwitchsRouterTres, tableMachinesRouterTres );
     }
     function openTableMachinesR3(){
         openViewTables(tableMachinesRouterTres, arrAllViewsOfSetting);
+        putTextSwitchAndMachines(btnMachinesRouterTres, 
+            btnSwitchRouterTres, tableMachinesRouterTres, tableSwitchsRouterTres );
     }
 
     // function openTable(table, btnUno, btnDos ){
@@ -247,6 +258,19 @@ const btnRouterTres = document.getElementById('routerTres'),
     //     }
     // }
 
+    function putTextSwitchAndMachines(btnToActiveTable, btn, tableOfButtonActived, table){
+        isTheBtnOfSwitch = btn.id.slice(0,7);
+        if(isTheBtnOfSwitch == 'switchs'){
+            putTextToButtons(btn, table, 'Ver switchs');
+            putTextToButtons(btnToActiveTable, tableOfButtonActived, 'Ver máquinas');
+        }
+        else{
+            putTextToButtons(btn, table, 'Ver máquinas');
+            putTextToButtons(btnToActiveTable, tableOfButtonActived, 'Ver switchs');
+
+        }
+    }
+
     function putTextToButtons(btn, tableOfButton, textToSee){
         let isTheTableShow = !tableOfButton.classList.contains('inactive');
         if (isTheTableShow){
@@ -255,4 +279,5 @@ const btnRouterTres = document.getElementById('routerTres'),
         else{
             btn.innerText = textToSee;
         }
+
     }
