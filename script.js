@@ -152,13 +152,6 @@ const btnRouterTres = document.getElementById('routerTres'),
         tableSwitchsRouterTres, tableMachinesRouterTres
     ];
 
-    const arrAllButtons = [
-        btnRouterUno, btnSwitchRouterUno, btnMachinesRouterUno,
-        btnRouterDos, btnSwitchRouterDos, btnMachinesRouterDos,
-        btnRouterTres, btnSwitchRouterTres, btnMachinesRouterTres,
-    ]
-
-    //btnSwitchRouterUno.addEventListener('click', toggleSwitch(tableSwitchsRouterUno, btnSwitchRouterUno));
     btnRouterUno.addEventListener('click', openTableR1);
     btnSwitchRouterUno.addEventListener('click', openTableSwitchR1);
     btnMachinesRouterUno.addEventListener('click', openTableMachinesR1);
@@ -171,15 +164,19 @@ const btnRouterTres = document.getElementById('routerTres'),
     btnSwitchRouterTres.addEventListener('click', openTableSwitchR3);
     btnMachinesRouterTres.addEventListener('click', openTableMachinesR3);
 
+    //Funcion para activar las funciones de poner texto a los botones y abrir la vista de la tabla del router.
     function openTableR1(){
         openViewTables(tableRouterUno, arrAllViewsOfRouters);
+        hideBtnContent(tableRouterUno, tableSwitchsRouterUno, tableMachinesRouterUno);
         putTextToButtons(btnRouterUno, tableRouterUno, 'Router CDMX');
     }
+    //Funcion para activar las funciones de poner texto a los botones y abrir la vista de la tabla del switch.
     function openTableSwitchR1(){
         openViewTables(tableSwitchsRouterUno, arrAllViewsOfSetting);
         putTextSwitchAndMachines(btnSwitchRouterUno, 
             btnMachinesRouterUno, tableSwitchsRouterUno, tableMachinesRouterUno );
     }
+    //Funcion para activar las funciones de poner texto a los botones y abrir la vista de la tabla de las máquinas
     function openTableMachinesR1(){
         openViewTables(tableMachinesRouterUno, arrAllViewsOfSetting);
         putTextSwitchAndMachines(btnMachinesRouterUno, 
@@ -189,6 +186,8 @@ const btnRouterTres = document.getElementById('routerTres'),
 
     function openTableR2(){
         openViewTables(tableRouterDos, arrAllViewsOfRouters);
+        hideBtnContent(tableRouterDos, tableSwitchsRouterDos, tableMachinesRouterDos);
+        putTextToButtons(btnRouterDos, tableRouterDos, 'Router TOREO');
     }
     function openTableSwitchR2(){
         openViewTables(tableSwitchsRouterDos, arrAllViewsOfSetting);
@@ -203,6 +202,8 @@ const btnRouterTres = document.getElementById('routerTres'),
 
     function openTableR3(){
         openViewTables(tableRouterTres, arrAllViewsOfRouters);
+        hideBtnContent(tableRouterTres, tableSwitchsRouterTres, tableMachinesRouterTres);
+        putTextToButtons(btnRouterTres, tableRouterTres, 'Router BR');
     }
     function openTableSwitchR3(){
         openViewTables(tableSwitchsRouterTres, arrAllViewsOfSetting);
@@ -215,49 +216,52 @@ const btnRouterTres = document.getElementById('routerTres'),
             btnSwitchRouterTres, tableMachinesRouterTres, tableSwitchsRouterTres );
     }
 
-    // function openTable(table, btnUno, btnDos ){
-    //     const isViewOfRouterClosed = table.classList.contains('inactive');
-    //     if (!isViewOfRouterClosed){
-    //         table.classList.toggle('inactive')
-    //     }
-    //     else{
-    //         table.classList.remove('inactive');
-    //     }
-    // }
+    function openTable(i, text){
+        text === 'switch'? openTableSwitch(i): openTableMachines(i);
+    }
 
+    function openTableMachines(i){
+        switch(i){
+            case 0:
+                openTableMachinesR1();                
+            break;
+            case 1:
+                openTableMachinesR2();                                
+            break;
+            case 2:
+                openTableMachinesR3();                                
+            break;
+        }
+    }
 
-    function openViewTables(table, arrAllViews){
+    function openTableSwitch(i){
+        switch(i){
+            case 0:
+                openTableSwitchR1();
+            break;
+            case 1:
+                openTableSwitchR2();
+            break;
+            case 2:
+                openTableSwitchR3();
+            break;
+        }
+    }
+
+    //función que recibe como parametro la tabla que quiere mostrar su contenido y cuando muestra su contenido cierra el contenido de las demás.
+    function openViewTables(table, arrAllView){
         let isTheTableOpen = !table.classList.contains('inactive');
         if(!isTheTableOpen){
-            for (let views of arrAllViews){
+            for (let views of arrAllView){
                 (views == table)? views.classList.remove('inactive'): views.classList.add('inactive');       
             }            
         }
         else{
-            table.classList.toggle('inactive')
-
+            table.classList.toggle('inactive');
         }
     }
 
-    // function toggleSwitch(table, btnSwitch){
-    //     closeViews(table, arrAllViewsOfSetting, btnSwitch, 'Ver Switchs');    
-    // }
-
-    // function openViews(element , arrViews, btn, txtShow){
-    //     let isTheElementOpen = !element.classList.contains('inactive');
-    //     if(!isTheElementOpen){
-    //         element.classList.toggle('inactive');
-    //         btn.innerText = txtShow;
-    //     }
-    //     else{
-    //         for (let views of arrViews){
-    //             (views == element)? views.classList.remove('inactive'): views.classList.add('inactive');   
-    //             putText();
-    //             btn.innerText = 'Ocultar';
-    //         }
-    //     }
-    // }
-
+    //Función que sirve para poner el texto de 'Ver máquinas' o de 'Ver switchs' según como corresponda
     function putTextSwitchAndMachines(btnToActiveTable, btn, tableOfButtonActived, table){
         isTheBtnOfSwitch = btn.id.slice(0,7);
         if(isTheBtnOfSwitch == 'switchs'){
@@ -273,11 +277,26 @@ const btnRouterTres = document.getElementById('routerTres'),
 
     function putTextToButtons(btn, tableOfButton, textToSee){
         let isTheTableShow = !tableOfButton.classList.contains('inactive');
-        if (isTheTableShow){
-            btn.innerText = 'Ocultar';
-        }
-        else{
-            btn.innerText = textToSee;
-        }
+        isTheTableShow ? btn.innerText = 'Ocultar': btn.innerText = textToSee;
+    }
 
+    //Función para ocultar todas las tablas dando click al boton del router
+    function hideBtnContent(tableRouter, tableSwitch, tableMachines){
+        let j = 0; // es para saber cuál será la posicion para después el arreglo de las tablas de máquinas y de tablas
+        for(let i=0 ; i < arrAllViewsOfRouters.length; i++){
+            if (arrAllViewsOfRouters[i] == tableRouter){ 
+                j = i; //es para saber cuál router está abierto
+            }
+        }
+        let isTheTableOpen = tableRouter.classList.contains('inactive');
+
+        let isTheTableShow = !tableSwitch.classList.contains('inactive');
+        if(isTheTableShow && isTheTableOpen){
+            openTable(j, 'switch');
+        }
+        isTheTableShow = !tableMachines.classList.contains('inactive');
+        if(isTheTableShow && isTheTableOpen){
+            openTable(j, 'machines');
+        }
+        
     }
