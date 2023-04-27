@@ -152,24 +152,23 @@ const btnRouterTres = document.getElementById('routerTres'),
         tableSwitchsRouterTres, tableMachinesRouterTres
     ];
 
-    btnRouterUno.addEventListener('click', openTableR1);
+    //Funcion openTableR1 es para activar las funciones de poner texto a los botones y abrir la vista de la tabla del router.
+    btnRouterUno.addEventListener('click', 
+    openTableR1 = () => toggleTableRouter(1, btnRouterUno, 'Router CDMX'));
     btnSwitchRouterUno.addEventListener('click', openTableSwitchR1);
     btnMachinesRouterUno.addEventListener('click', openTableMachinesR1);
     
-    btnRouterDos.addEventListener('click', openTableR2);
+    btnRouterDos.addEventListener('click', 
+    openTableR2 = () => toggleTableRouter(2, btnRouterDos, 'Router TOREO'));
     btnSwitchRouterDos.addEventListener('click', openTableSwitchR2);
     btnMachinesRouterDos.addEventListener('click', openTableMachinesR2);
 
-    btnRouterTres.addEventListener('click', openTableR3);
+    btnRouterTres.addEventListener('click', 
+    openTableR3 = () => toggleTableRouter(3, btnRouterTres, 'Router BR'));
     btnSwitchRouterTres.addEventListener('click', openTableSwitchR3);
     btnMachinesRouterTres.addEventListener('click', openTableMachinesR3);
 
-    //Funcion para activar las funciones de poner texto a los botones y abrir la vista de la tabla del router.
-    function openTableR1(){
-        openViewTables(tableRouterUno, arrAllViewsOfRouters);
-        hideBtnContent(tableRouterUno, tableSwitchsRouterUno, tableMachinesRouterUno);
-        putTextToButtons(btnRouterUno, tableRouterUno, 'Router CDMX');
-    }
+   
     //Funcion para activar las funciones de poner texto a los botones y abrir la vista de la tabla del switch.
     function openTableSwitchR1(){
         openViewTables(tableSwitchsRouterUno, arrAllViewsOfSetting);
@@ -183,12 +182,6 @@ const btnRouterTres = document.getElementById('routerTres'),
             btnSwitchRouterUno, tableMachinesRouterUno, tableSwitchsRouterUno );
     }
     
-
-    function openTableR2(){
-        openViewTables(tableRouterDos, arrAllViewsOfRouters);
-        hideBtnContent(tableRouterDos, tableSwitchsRouterDos, tableMachinesRouterDos);
-        putTextToButtons(btnRouterDos, tableRouterDos, 'Router TOREO');
-    }
     function openTableSwitchR2(){
         openViewTables(tableSwitchsRouterDos, arrAllViewsOfSetting);
         putTextSwitchAndMachines(btnSwitchRouterDos, 
@@ -200,11 +193,6 @@ const btnRouterTres = document.getElementById('routerTres'),
             btnSwitchRouterDos, tableMachinesRouterDos, tableSwitchsRouterDos );
     }
 
-    function openTableR3(){
-        openViewTables(tableRouterTres, arrAllViewsOfRouters);
-        hideBtnContent(tableRouterTres, tableSwitchsRouterTres, tableMachinesRouterTres);
-        putTextToButtons(btnRouterTres, tableRouterTres, 'Router BR');
-    }
     function openTableSwitchR3(){
         openViewTables(tableSwitchsRouterTres, arrAllViewsOfSetting);
         putTextSwitchAndMachines(btnSwitchRouterTres, 
@@ -214,6 +202,58 @@ const btnRouterTres = document.getElementById('routerTres'),
         openViewTables(tableMachinesRouterTres, arrAllViewsOfSetting);
         putTextSwitchAndMachines(btnMachinesRouterTres, 
             btnSwitchRouterTres, tableMachinesRouterTres, tableSwitchsRouterTres );
+    }
+
+
+    function toggleTableRouter(indice){
+        let primerRouter = tableReturn(indice);
+        
+        isATableActivade = false;
+        for (let i = 0 ; i < arrAllViewsOfRouters.length; i++){
+            let segundoRouter = tableReturn(i+1);        
+            isTheTableActivade = !segundoRouter.tableRouter.classList.contains('inactive');
+            if(isTheTableActivade && segundoRouter.tableRouter !== primerRouter.tableRouter){
+                openViewTables(segundoRouter.tableRouter, arrAllViewsOfRouters);
+                hideBtnContent(segundoRouter.tableRouter, segundoRouter.tableSwitchsRouter, segundoRouter.tableMachinesRouter);
+                putTextToButtons(segundoRouter.btnRouter, segundoRouter.tableRouter, segundoRouter.text);
+            }
+        }
+        
+        openViewTables(primerRouter.tableRouter, arrAllViewsOfRouters);
+        hideBtnContent(primerRouter.tableRouter, primerRouter.tableSwitchsRouter, primerRouter.tableMachinesRouter);
+        putTextToButtons(primerRouter.btnRouter, primerRouter.tableRouter, primerRouter.text);
+    }
+
+    function tableReturn(indice){
+        let tableRouter, tableSwitchsRouter, tableMachinesRouter, btnRouter, text;
+        switch(indice){
+            case 1:
+                tableRouter = arrAllViewsOfRouters[indice-1]
+                tableSwitchsRouter = arrAllViewsOfSetting[0]
+                tableMachinesRouter = arrAllViewsOfSetting[1]                
+                btnRouter = btnRouterUno, 
+                text = 'Router CDMX'
+            break;
+            case 2:
+                tableRouter = arrAllViewsOfRouters[indice-1]
+                tableSwitchsRouter = arrAllViewsOfSetting[2]
+                tableMachinesRouter = arrAllViewsOfSetting[3]
+                btnRouter = btnRouterDos, 
+                text = 'Router TOREO'
+            break;
+            case 3:
+                tableRouter = arrAllViewsOfRouters[indice-1]
+                tableSwitchsRouter = arrAllViewsOfSetting[4]
+                tableMachinesRouter = arrAllViewsOfSetting[5]
+                btnRouter = btnRouterTres, 
+                text = 'Router BR'
+            break;
+        }
+        return {tableRouter: tableRouter, 
+            tableSwitchsRouter: tableSwitchsRouter, 
+            tableMachinesRouter: tableMachinesRouter, 
+            btnRouter: btnRouter,
+            text: text}
     }
 
     function openTable(i, text){
@@ -297,6 +337,5 @@ const btnRouterTres = document.getElementById('routerTres'),
         isTheTableShow = !tableMachines.classList.contains('inactive');
         if(isTheTableShow && isTheTableOpen){
             openTable(j, 'machines');
-        }
-        
+        }        
     }
