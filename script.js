@@ -9,14 +9,16 @@ const first_view = document.getElementById('first-view'),
 const second_view = document.getElementById('second-view'),
     btnCloseSesion = document.getElementById('btnCloseSesion'),
     welcome = document.getElementById('welcome'),
-    clock_start = document.getElementById('clock_start');
-let who = 0;
+    clock_start = document.getElementById('clock_start'),
+    btnCloseImag = document.getElementById('btnCloseImag'),
+    imag = document.getElementById('imgRed');
+let who = null;
 const recognition = new webkitSpeechRecognition();
 
 const arrAllViews = [first_view, second_view, login_view]
 
 phrases = [
-    'Soy el ingeniero Bruno Nicolás Barajas Correa.',
+    'Soy el ingeniero Bruno Nicolás.',
     'Soy Eduardo García Marín, el ayudante.',
     'Usuario.'
 ]
@@ -93,9 +95,10 @@ recognition.onresult = (event) => {
     const texto = event.results[event.results.length - 1][0].transcript;
     console.log(texto)
     for(let i = 0; i<phrases.length; i++){
-        if (texto == phrases[who])
+        if (texto == phrases[who]){
             showSesion(users[who], time() )
             document.title ="Bienvenido " + users[who];
+        }
     }
     
 }
@@ -152,6 +155,12 @@ const btnRouterTres = document.getElementById('routerTres'),
         tableSwitchsRouterTres, tableMachinesRouterTres
     ];
 
+    function startSesionUser(){
+        btnRouterUno.classList.add('inactive');
+        btnRouterDos.classList.add('inactive');
+        btnRouterTres.classList.add('inactive');
+    }
+
     //Funcion openTableR1 es para activar las funciones de poner texto a los botones y abrir la vista de la tabla del router.
     btnRouterUno.addEventListener('click', 
     openTableR1 = () => toggleTableRouter(1, btnRouterUno, 'Router CDMX'));
@@ -168,6 +177,18 @@ const btnRouterTres = document.getElementById('routerTres'),
     btnSwitchRouterTres.addEventListener('click', openTableSwitchR3);
     btnMachinesRouterTres.addEventListener('click', openTableMachinesR3);
 
+    btnCloseImag.addEventListener('click', toggleImag);
+
+    function toggleImag(){
+        let isShowImagen = !imag.classList.contains('inactive');
+        if (isShowImagen){
+        imag.classList.add('inactive');
+        console.log('add')
+        }
+        else{
+        imag.classList.remove('inactive');
+        }
+    }
    
     //Funcion para activar las funciones de poner texto a los botones y abrir la vista de la tabla del switch.
     function openTableSwitchR1(){
@@ -339,3 +360,5 @@ const btnRouterTres = document.getElementById('routerTres'),
             openTable(j, 'machines');
         }        
     }
+
+    
