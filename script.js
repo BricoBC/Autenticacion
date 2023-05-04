@@ -98,6 +98,7 @@ recognition.onresult = (event) => {
         if (texto == phrases[who]){
             showSesion(users[who], time() )
             document.title ="Bienvenido " + users[who];
+            whoStartSesion(users[who]);
         }
     }
     
@@ -107,6 +108,22 @@ function showSesion(person, hora){
     first_view.classList.add('inactive');
     welcome.innerText = 'Bienvenido sea ' + person
     clock_start.innerText = 'Inicio sesión a las ' + hora
+}
+
+function whoStartSesion(persona){
+    switch(persona){
+        case 'Administrador':
+
+        break;
+        case 'Ayudante':
+
+        break;
+        case 'Usuario':
+            btnRouterUno.classList.add('inactive')
+            btnRouterDos.classList.add('inactive')
+            btnRouterTres.classList.add('inactive')
+        break;
+    }
 }
 
 function time(){
@@ -187,7 +204,6 @@ const btnRouterTres = document.getElementById('routerTres'),
         else{
             imag.classList.remove('inactive');
         }
-        console.log('out')
         for (let i = 0 ; i < arrAllViewsOfRouters.length; i++){
             let isShowTheTable = !arrAllViewsOfRouters[i].classList.contains('inactive')
             if(isShowTheTable){
