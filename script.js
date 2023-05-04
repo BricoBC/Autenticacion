@@ -163,17 +163,17 @@ const btnRouterTres = document.getElementById('routerTres'),
 
     //Funcion openTableR1 es para activar las funciones de poner texto a los botones y abrir la vista de la tabla del router.
     btnRouterUno.addEventListener('click', 
-    openTableR1 = () => toggleTableRouter(1, btnRouterUno, 'Router CDMX'));
+    openTableR1 = () => toggleTableRouter(1));
     btnSwitchRouterUno.addEventListener('click', openTableSwitchR1);
     btnMachinesRouterUno.addEventListener('click', openTableMachinesR1);
     
     btnRouterDos.addEventListener('click', 
-    openTableR2 = () => toggleTableRouter(2, btnRouterDos, 'Router TOREO'));
+    openTableR2 = () => toggleTableRouter(2));
     btnSwitchRouterDos.addEventListener('click', openTableSwitchR2);
     btnMachinesRouterDos.addEventListener('click', openTableMachinesR2);
 
     btnRouterTres.addEventListener('click', 
-    openTableR3 = () => toggleTableRouter(3, btnRouterTres, 'Router BR'));
+    openTableR3 = () => toggleTableRouter(3));
     btnSwitchRouterTres.addEventListener('click', openTableSwitchR3);
     btnMachinesRouterTres.addEventListener('click', openTableMachinesR3);
 
@@ -182,11 +182,18 @@ const btnRouterTres = document.getElementById('routerTres'),
     function toggleImag(){
         let isShowImagen = !imag.classList.contains('inactive');
         if (isShowImagen){
-        imag.classList.add('inactive');
-        console.log('add')
+            imag.classList.add('inactive');
         }
         else{
-        imag.classList.remove('inactive');
+            imag.classList.remove('inactive');
+        }
+        console.log('out')
+        for (let i = 0 ; i < arrAllViewsOfRouters.length; i++){
+            let isShowTheTable = !arrAllViewsOfRouters[i].classList.contains('inactive')
+            if(isShowTheTable){
+                toggleTableRouter(i+1);
+                imag.classList.remove('inactive');
+            }
         }
     }
    
@@ -227,6 +234,8 @@ const btnRouterTres = document.getElementById('routerTres'),
 
 
     function toggleTableRouter(indice){
+        imag.classList.add('inactive');
+
         let primerRouter = tableReturn(indice);
         
         isATableActivade = false;

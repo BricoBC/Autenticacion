@@ -26,6 +26,7 @@
         border-radius: 20px;
     }
     
+    
     form img{
         width: 100px;
         height: 100px;
@@ -94,7 +95,7 @@
     /* Estilos del sistema */
     .second{
         width: 900px;
-        height: 600px;
+        height: 100vh;
         background-color: rgb(227, 230, 66);
     }
     td, th {
@@ -103,6 +104,14 @@
     }
     .btn{
         width: 110px;
+        cursor: pointer;
     }
 
+    .btn:hover{
+        opacity: .8;
+    }
+    
+    #render{
+        margin: 50px 0;
+    }
     
