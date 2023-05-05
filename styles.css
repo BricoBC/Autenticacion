@@ -82,8 +82,7 @@
         justify-content: center;
     }
     .btnStart{
-        border-color: palevioletred;
-        background-color: rgb(75, 39, 39);
+        background-color: rgb(138, 160, 226);
         width: 80%;
         border-radius: 25%;
         cursor: pointer;
@@ -92,12 +91,39 @@
         border-radius: 25%;
         width: 95%
     }
+    #render{
+        text-align: center;
+    }
+    #render > div{
+        padding: 10px 0;
+    }
+    .checkboxAll{
+        margin: 10px 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .checkboxAll > aside{
+        margin: 8px 0;
+    }
+    /* .checkboxAll > input{
+         width: 35px; 
+    } */
+    .redImagen{
+        margin: auto;
+        border-radius: 5%;
+    }
+    .table > table{
+        margin: 0 auto;
+    }
     /* Estilos del sistema */
     .second{
-        width: 900px;
-        height: 100vh;
-        background-color: rgb(227, 230, 66);
+        /* padding: 15px; */
+        width: 95%;
+        min-height: 100vh;
+        background-color: rgb(230, 235, 171);
     }
+
     td, th {
         border: 1px solid #999;
         padding: 0.5rem;

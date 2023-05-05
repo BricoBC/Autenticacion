@@ -108,6 +108,7 @@ function showSesion(person, hora){
     first_view.classList.add('inactive');
     welcome.innerText = 'Bienvenido sea ' + person
     clock_start.innerText = 'Inicio sesión a las ' + hora
+    
 }
 
 function whoStartSesion(persona){
