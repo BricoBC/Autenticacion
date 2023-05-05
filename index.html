@@ -40,6 +40,7 @@
         </div>
         <section id="render">
             <img class="redImagen" id="imgRed" src="img/red.png" alt="Imagen de la red">
+            <hr><br>
             
             <button id="routerUno" class="btn"> Router CDMX </button>
             <button id="routerDos" class="btn"> Router TOREO </button>
@@ -73,6 +74,17 @@
                         <td>"Sólo el administrador puede hacer modificaciones en el Router CDMX"</td>
                     </tr>
                 </table>
+                <section class="checkboxAll router">
+                    <input type="checkbox" id="item1" name="item1"><label for="item1">Dirección IP</label>
+                    <input type="checkbox" id="item2" name="item2"><label for="item2">Contraseña vty 0 4</label>
+                    <input type="checkbox" id="item3" name="item3"><label for="item3">Contraseña console</label>                    
+                    <input type="checkbox" id="item4" name="item4"><label for="item4">Contraseña pass</label>
+                    <input type="checkbox" id="item5" name="item5"><label for="item5">Contraseña pass secret</label>                                        
+                    <aside>
+                        <input type="text" id="texto" name="texto">
+                        <button type="submit">Actualizar</button>
+                    </aside>
+                </section>
                 <section class="botones">
                     <button id="switchsRouterUno" class="btn Switch">Ver Switchs</button>
                     <button id="machinesRouterUno" class="btn Machines">Ver máquinas</button>
@@ -113,6 +125,17 @@
                         <td>"Sólo el administrador puede hacer modificaciones en el Router TOREO - BR"</td>
                     </tr>
                 </table>
+                <section class="checkboxAll">
+                    <input type="checkbox" id="item1" name="item1"><label for="item1">Dirección IP</label>
+                    <input type="checkbox" id="item2" name="item2"><label for="item2">Contraseña vty 0 4</label>
+                    <input type="checkbox" id="item3" name="item3"><label for="item3">Contraseña console</label>                    
+                    <input type="checkbox" id="item4" name="item4"><label for="item4">Contraseña pass</label>
+                    <input type="checkbox" id="item5" name="item5"><label for="item5">Contraseña pass secret</label>                                        
+                    
+                    <input type="text" id="texto" name="texto">
+                    <button type="submit">Actualizar</button>
+                </section>
+
                 <section class="botones">
                     <button id="switchsRouterDos" class="btn Switch">Ver Switchs</button>
                     <button id="machinesRouterDos" class="btn Machines">Ver máquinas</button>
@@ -146,33 +169,54 @@
                         <td>"Sólo el administrador puede hacer modificaciones en el Router BR "</td>
                     </tr>
                 </table>
+                <section class="checkboxAll">
+                    <input type="checkbox" id="item1" name="item1"><label for="item1">Dirección IP</label>
+                    <input type="checkbox" id="item2" name="item2"><label for="item2">Contraseña vty 0 4</label>
+                    <input type="checkbox" id="item3" name="item3"><label for="item3">Contraseña console</label>                    
+                    <input type="checkbox" id="item4" name="item4"><label for="item4">Contraseña pass</label>
+                    <input type="checkbox" id="item5" name="item5"><label for="item5">Contraseña pass secret</label>                                        
+                    
+                    <input type="text" id="texto" name="texto">
+                    <button type="submit">Actualizar</button>
+                </section>
                 <section class="botones">
                     <button id="switchsRouterTres" class="btn Switch">Ver Switchs</button>
                     <button id="machinesRouterTres" class="btn Machines">Ver máquinas</button>
                 </section>
             </div>
             
-            
-            <table id="tableSwitchsRouterUno" class="inactive">
-                <caption>Configuración de los Switchs del Router CDMX</caption>
-                <td></td><td>Switch #1</td>
-                <tr>
-                    <td>Dirección IP:</td>
-                    <td>172.15.110.1</td>
-                </tr>
-                <tr>
-                    <td>Subnet Mask:</td>
-                    <td>255.255.0.0</td>
-                </tr>
-                <tr>
-                    <td>Dirección IP VLAN:</td>
-                    <td>172.15.110.25</td>
-                </tr>
-                <tr>
-                    <td>Subnet Mask:</td>
-                    <td>255.255.0.0</td>
-                </tr>
-            </table>
+            <div id="tableSwitchsRouterUno" class="inactive">
+                <table >
+                    <caption>Configuración de los Switchs del Router CDMX</caption>
+                    <td></td><td>Switch #1</td>
+                    <tr>
+                        <td>Dirección IP:</td>
+                        <td>172.15.110.1</td>
+                    </tr>
+                    <tr>
+                        <td>Subnet Mask:</td>
+                        <td>255.255.0.0</td>
+                    </tr>
+                    <tr>
+                        <td>Dirección IP VLAN:</td>
+                        <td>172.15.110.25</td>
+                    </tr>
+                    <tr>
+                        <td>Subnet Mask:</td>
+                        <td>255.255.0.0</td>
+                    </tr>
+                </table>
+                <section class="checkboxAll router">
+                    <input type="checkbox" id="item1" name="item1"><label for="item1">Dirección IP</label>
+                    <input type="checkbox" id="item2" name="item2"><label for="item2">Subnet Mask</label>
+                    <input type="checkbox" id="item3" name="item3"><label for="item3">Dirección ip vlan</label>                    
+                    <input type="checkbox" id="item4" name="item4"><label for="item4">Subnet Mask Vlan</label>
+                    <aside>
+                        <input type="text" id="texto" name="texto">
+                        <button type="submit">Actualizar</button>
+                    </aside>
+                </section>
+            </div>
             <table id="tableSwitchsRouterDos" class="inactive">
                 <caption>Configuración de los Switchs del Router TOREO</caption>
                 <td></td><td>Switch #1</td>
@@ -214,27 +258,40 @@
                 </tr>
             </table>
 
-            <table id="tableMachinesRouterUno" class="inactive">
-                <caption>Configuración de las máquinas del router CDMX</caption>
-                <td></td>
-                <td >Maquina #1</td>
-                <td >Maquina #2</td>
-                <td >Maquina #3</td>
-                <tr>
-                    <td>IPv4 Addres:</td>
-                    <td>172.15.110.15</td>
-                    <td>172.15.110.16</td>
-                    <td>172.15.110.17</td>
-                </tr>
-                <tr>
-                    <td>Subnet Mask:</td>
-                    <td colspan="3">255.255.0.0</td>
-                </tr>
-                <tr>
-                    <td>Default Gateway:</td>
-                    <td colspan="3">172.15.110.1</td>
-                </tr>
-            </table>
+            <div id="tableMachinesRouterUno" class="inactive">
+                <table >
+                    <caption>Configuración de las máquinas del router CDMX</caption>
+                    <td></td>
+                    <td >Maquina #1</td>
+                    <td >Maquina #2</td>
+                    <td >Maquina #3</td>
+                    <tr>
+                        <td>IPv4 Addres:</td>
+                        <td>172.15.110.15</td>
+                        <td>172.15.110.16</td>
+                        <td>172.15.110.17</td>
+                    </tr>
+                    <tr>
+                        <td>Subnet Mask:</td>
+                        <td colspan="3">255.255.0.0</td>
+                    </tr>
+                    <tr>
+                        <td>Default Gateway:</td>
+                        <td colspan="3">172.15.110.1</td>
+                    </tr>
+                </table>
+                <section class="checkboxAll router">
+                    <input type="checkbox" id="item1" name="item1"><label for="item1">M1 Dirección IPV4</label>
+                    <input type="checkbox" id="item2" name="item2"><label for="item2">M2 Dirección IPV4</label>
+                    <input type="checkbox" id="item3" name="item3"><label for="item3">M3 Dirección IPV4</label>                    
+                    <input type="checkbox" id="item4" name="item4"><label for="item4">Subnet Mask</label>
+                    <input type="checkbox" id="item5" name="item5"><label for="item5">Default Gateway</label>                                        
+                    <aside>
+                        <input type="text" id="texto" name="texto">
+                        <button type="submit">Actualizar</button>
+                    </aside>
+                </section>
+            </div>
             <table id="tableMachinesRouterDos" class="inactive">
                 <caption>Configuración de las máquinas del router TOREO</caption>
                 <td></td>
