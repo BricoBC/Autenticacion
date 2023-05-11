@@ -71,15 +71,18 @@
         opacity: .75;
     }
     /* Estilos del segundo login */
-    .fila{
-        display: flex;
-        justify-content: center;
+    .first{
+        text-align: center;
     }
     .uno{
         padding: 10px;
     }
     .dos{
+        flex-direction: column;
         justify-content: center;
+    }
+    #speak{
+        text-align: center;
     }
     .btnStart{
         background-color: rgb(138, 160, 226);
