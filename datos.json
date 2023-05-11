@@ -4,8 +4,11 @@
             "id": 1,
             "name": "CDMX",
             "dir_ip": "172.15.100.1",
-            "pass_0_4": 1234,
-            "mensaje": "Router CDMX",
+            "pass_vty": 1234,
+            "pass_console": "L4v1g4admn4h",
+            "pass": "Cisco",
+            "pass_secret": "1ng3n13r14",
+            "mensaje": "Sólo el administrador puede hacer modificaciones en el Router CDMX",
             "switch":{
                 "id": 1,
                 "dir_ip": "172.15.110.1",
@@ -73,7 +76,7 @@
             "name": "Zentralia",
             "dir_ip": "172.15.100.3",
             "pass_0_4": 1234,
-            "mensaje": "Router Pachuca",
+            "mensaje": "Router Zentralia",
             "switch":{
                 "id": 1,
                 "dir_ip": "172.15.130.1",
