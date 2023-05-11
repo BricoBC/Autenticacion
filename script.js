@@ -299,7 +299,7 @@ const btnRouterTres = document.getElementById('routerTres'),
                 tableSwitchsRouter = arrAllViewsOfSetting[4]
                 tableMachinesRouter = arrAllViewsOfSetting[5]
                 btnRouter = btnRouterTres, 
-                text = 'Router BR'
+                text = 'Router Zentralia'
             break;
         }
         return {tableRouter: tableRouter, 
