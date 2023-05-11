@@ -85,6 +85,7 @@ recognition.interimResults = false;
 
 
 btnStar.addEventListener('click', ()=>{
+    txtSpeak.innerText = ''
     recognition.start();
 });
 
@@ -96,12 +97,16 @@ btnCloseSesion.addEventListener('click', ()=>{
 recognition.onresult = (event) => {
     const texto = event.results[event.results.length - 1][0].transcript;
     console.log(texto)
-    txtSpeak.innerText = texto;
     for(let i = 0; i<phrases.length; i++){
         if (texto == phrases[who]){
             showSesion(users[who], time() )
             document.title ="Bienvenido " + users[who];
             whoStartSesion(users[who]);
+        }
+        else{
+            txtSpeak.style.color = 'red'
+            txtSpeak.style.textDecoration = 'line-through'
+            txtSpeak.innerText = texto;
         }
     }
     
