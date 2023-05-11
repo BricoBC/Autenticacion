@@ -5,13 +5,15 @@ const login_view = document.getElementById('login-view'),
     username = document.getElementById("username"),
     $visible = document.getElementById("visible");
 const first_view = document.getElementById('first-view'),
-    btnStar = document.getElementById('btnStart');
+    btnStar = document.getElementById('btnStart'),
+    txtSpeak = document.getElementById('speak');;
 const second_view = document.getElementById('second-view'),
     btnCloseSesion = document.getElementById('btnCloseSesion'),
     welcome = document.getElementById('welcome'),
     clock_start = document.getElementById('clock_start'),
     btnCloseImag = document.getElementById('btnCloseImag'),
     imag = document.getElementById('imgRed');
+    const contrasena = document.getElementsByClassName('Contraseñas_Admin');
 let who = null;
 const recognition = new webkitSpeechRecognition();
 
@@ -94,6 +96,7 @@ btnCloseSesion.addEventListener('click', ()=>{
 recognition.onresult = (event) => {
     const texto = event.results[event.results.length - 1][0].transcript;
     console.log(texto)
+    txtSpeak.innerText = texto;
     for(let i = 0; i<phrases.length; i++){
         if (texto == phrases[who]){
             showSesion(users[who], time() )
@@ -117,7 +120,10 @@ function whoStartSesion(persona){
 
         break;
         case 'Ayudante':
-
+            for(let i = 0; i < contrasena.length; i++)    
+            {
+                contrasena[i].style.display = 'none'
+            }
         break;
         case 'Usuario':
             btnRouterUno.classList.add('inactive')
