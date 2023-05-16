@@ -1,4 +1,86 @@
-// import { changeValueOfRouter, config_red } from "./red";
+let config_red = {
+    "router": { //Información de todos los routers
+        "name": ["CDMX", "Toreo", "Zentralia"],
+        "ip_v4": [["172.15.100.1"], //El tamaño del arreglo es igual a las conexiones que tiene con otro router
+        ["172.15.100.2", "172.15.110.1"], 
+        ["172.15.110.2"]],
+        "pass_vty": ["1234", "5678", "91012"], //Hacer un arreglo para cada router
+        "pass_con": ["L4v1g4admn4h", "L4v1g4admn4h", "L4v1g4admn4h" ],
+        "pass": ["Cisco", "Cisco", "Cisco"],
+        "pass_secret": ["1ng3n13r14", "1ng3n13r14", "1ng3n13r14"],
+        "subnet_mask": "255.255.0.0",
+        "mensaje": [["Sólo el administrador puede hacer modificaciones en el Router CDMX"],
+        ["Sólo el administrador puede hacer modificaciones en el Router CDMX - TOREO", "Sólo el administrador puede hacer modificaciones en el Router TOREO - ZENTRALIA"],
+        ["Sólo el administrador puede hacer modificaciones en el Router ZENTRALIA"]],
+        //Hacer un arreglo para cada mensaje de cada router    
+        "dominio": "mex.mx.uaem.com"
+    },
+    "switch": { //el primer numero indica a cuál router se conecta
+        "id": [["172.15.110.1"],["172.15.120.1"],["172.15.130.1" ]],
+        "subnet_mask": "255.255.0.0",
+        "vlan": [["172.15.110.25"], ["172.15.120.25"],["172.15.130.25"]],
+        "subnet_mask_v4": [["172.15.110.25"], ["172.15.120.25"], ["172.15.130.25"]],
+        "default_gateway": "192.168.10.1"
+    },
+    "maquinas": {
+        "r1" :{
+            "ip_v4": ["172.15.110.15", "172.15.110.16", "172.15.110.17"],
+            "subnet_mask": "255.255.0.0",
+            "default_gateway": "172.15.110.1",
+            "DNS_preferido": "172.10.162.4",
+            "DNS_alternativo": "172.10.162.5"
+        },
+        "r2" : {
+            "ip_v4": ["172.15.120.20", "172.15.120.21", "172.15.120.22"],
+            "subnet_mask": "255.255.0.0",
+            "default_gateway": "172.15.120.1",
+            "DNS_preferido": "172.10.162.4",
+            "DNS_alternativo": "172.10.162.5"
+        },
+        "r3":{
+            "ip_v4": ["172.15.110.30", "172.15.110.31", "172.15.110.32"],
+            "subnet_mask": "255.255.0.0",
+            "default_gateway": "172.15.110.1",
+            "DNS_preferido": "172.10.162.4",
+            "DNS_alternativo": "172.10.162.5"
+        },
+    }
+};
+
+//funcion para el router 1
+function updateRouterUno(){
+    const btn = document.getElementById('routerUno');
+    btn.innerText = 'Router ' + config_red["router"]["name"][0];
+    const caption = document.getElementById('capt_routerUno');
+    caption.innerText = 'Configuración Router ' + config_red["router"]["name"][0];
+    const dir_ip = document.getElementById('ip_routerUno');
+    dir_ip.innerText = config_red["router"]['ip_v4'][0][0];
+    const pass_vty = document.getElementById('pass_vty_routerUno');
+    pass_vty.innerText = config_red["router"]["pass_vty"][0];
+    const pass_con = document.getElementById('pass_con_routerUno');
+    pass_con.innerText = config_red["router"]["pass_con"][0];
+    const pass = document.getElementById('pass_routerUno');
+    pass.innerText = config_red["router"]["pass"][0];
+    const pass_secret = document.getElementById('pass_secret_routerUno');
+    pass_secret.innerText = config_red["router"]["pass_secret"][0];
+    const msj_router = document.getElementById('msj_routerUno');
+    msj_router.innerText = 'Sólo el administrador puede hacer modificaciones en el ' + config_red["router"]["name"][0];
+
+    //Router 2
+    const titleR2 = document.getElementById('title');
+    titleR2.innerText = 'Configuración ' + config_red["router"]["name"][0]+' - '+config_red["router"]["name"][1];
+    const titleInputs = document.getElementById('titleInput');
+    titleInputs.innerText = config_red["router"]["name"][0]+' - '+config_red["router"]["name"][1];
+    const td = document.getElementById('td_Router2_1');
+    td.innerText = "Sólo el administrador puede hacer modificaciones en el Router " + config_red["router"]["name"][0] +'-'+config_red["router"]["name"][1]
+}
+
+function updateDominio(){
+    const dominio = document.getElementsByClassName('dominio');
+    for(let i = 0; i<dominio.length; i++){
+        dominio[i].innerText = config_red["router"]["dominio"];
+    }
+}
 
 const clock = document.getElementById('clock');
 const login_view = document.getElementById('login-view'),
@@ -295,21 +377,21 @@ const btnRouterTres = document.getElementById('routerTres'),
                 tableSwitchsRouter = arrAllViewsOfSetting[0]
                 tableMachinesRouter = arrAllViewsOfSetting[1]                
                 btnRouter = btnRouterUno, 
-                text = 'Router CDMX'
+                text = 'Router '+ config_red["router"]["name"][0];
             break;
             case 2:
                 tableRouter = arrAllViewsOfRouters[indice-1]
                 tableSwitchsRouter = arrAllViewsOfSetting[2]
                 tableMachinesRouter = arrAllViewsOfSetting[3]
                 btnRouter = btnRouterDos, 
-                text = 'Router TOREO'
+                text = 'Router ' + config_red["router"]["name"][1]
             break;
             case 3:
                 tableRouter = arrAllViewsOfRouters[indice-1]
                 tableSwitchsRouter = arrAllViewsOfSetting[4]
                 tableMachinesRouter = arrAllViewsOfSetting[5]
                 btnRouter = btnRouterTres, 
-                text = 'Router Zentralia'
+                text = 'Router ' +config_red["router"]["name"][2];
             break;
         }
         return {tableRouter: tableRouter, 

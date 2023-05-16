@@ -9,7 +9,7 @@
 </head>
 <body onload="mueveReloj()">
     <!-- PRIMERA INTERFAZ -->
-    <form id="login-view" class="login " >
+    <form id="login-view" class="login inactive" >
         <img src="./img/user.png" alt="user-img">
         <label for="username">Usuario</label>
         <input type="text" id="username" placeholder="Ejemplo: usuario1234" required>
@@ -32,7 +32,7 @@
             </section>  
     </div>
     <!-- VISTA PRINCIPAL -->
-    <div id="second-view" class="second inactive">
+    <div id="second-view" class="second">
         <div class="container">
             <h2 id="welcome"></h2>
             <h2 id="clock_start"> Inicio sesión a las </h2>
@@ -48,34 +48,34 @@
 
             <div id="tableRouterUno" class="inactive table">
                 <table>
-                    <caption id="name">Configuración Router CDMX </caption>
+                    <caption id="capt_routerUno">Configuración Router CDMX </caption>
                     <tr>
                         <td>Dirección IP: </td>
-                        <td id="ip">172.15.100.1</td>
+                        <td id="ip_routerUno">172.15.100.1</td>
                     </tr>
                     <tr class="Contraseñas_Admin">
                         <td>Contraseña vty 0 4</td>
-                        <td id="pass_vty">1234</td>
+                        <td id="pass_vty_routerUno">1234</td>
                     </tr>
                     <tr class="Contraseñas_Admin">
                        <td>Contraseña console</td>
-                        <td>L4v1g4admn4h</td>
+                        <td id="pass_con_routerUno">L4v1g4admn4h</td>
                     </tr>
                     <tr class="Contraseñas_Admin">
                         <td>Contraseña pass</td>
-                        <td>Cisco</td>
+                        <td id="pass_routerUno">Cisco</td>
                     </tr>
                     <tr class="Contraseñas_Admin">
                         <td>Contraseña pass secret</td>
-                        <td>1ng3n13r14</td>
+                        <td id="pass_secret_routerUno">1ng3n13r14</td>
                     </tr>
                     <tr>
                         <td>Mensaje del día: </td>
-                        <td>"Sólo el administrador puede hacer modificaciones en el Router CDMX"</td>
+                        <td id="msj_routerUno">"Sólo el administrador puede hacer modificaciones en el Router CDMX"</td>
                     </tr>
                     <tr>
                         <td>Dominio</td>
-                        <td>mex.mx.uaem.com</td>
+                        <td class="dominio">mex.mx.uaem.com</td>
                     </tr>
                 </table>
                 <section class="checkboxAll router Contraseñas_Admin">
@@ -85,7 +85,7 @@
                     <input type="checkbox" id="pass_r1" name="pass_r1"><label for="pass_r1"> Contraseña pass</label>
                     <input type="checkbox" id="pass_secret_r1" name="pass_secret_r1"><label for="pass_secret_r1"> Contraseña pass secret</label>                                        
                     <aside>
-                        <input type="text" id="texto" name="texto">
+                        <input type="text" id="txtR1" name="txtR1">
                         <button type="submit">Actualizar</button>
                     </aside>
                 </section>
@@ -96,8 +96,8 @@
             </div>            
             <div id="tableRouterDos" class="inactive table">
                 <table>
-                    <caption>Configuración Router TOREO </caption>
-                    <th></th><th> Router Cdmx - TOREO</th><th>Router Toreo - Br</th>
+                    <caption id="caption_routerDos_1">Configuración Router TOREO </caption>
+                    <th></th><th id="title"> Router Cdmx - TOREO</th><th>Router Toreo - Br</th>
                     <tr>
                         <td>Dirección IP: </td>
                         <td>172.15.100.2</td>
@@ -125,16 +125,16 @@
                     </tr>
                     <tr>
                         <td>Mensaje del día: </td>
-                        <td>"Sólo el administrador puede hacer modificaciones en el Router CDMX - TOREO"</td>
+                        <td id="td_Router2_1">"Sólo el administrador puede hacer modificaciones en el Router CDMX - TOREO"</td>
                         <td>"Sólo el administrador puede hacer modificaciones en el Router TOREO - ZENTRALIA"</td>
                     </tr>
                     <tr>
                         <td>Dominio</td>
-                        <td colspan="2">mex.mx.uaem.com</td>
+                        <td colspan="2" class="dominio">mex.mx.uaem.com</td>
                     </tr>
                 </table>
                 <section class="checkboxAll Contraseñas_Admin">
-                    <p>CDMX - TOREO</p>
+                    <p id="titleInput">CDMX - TOREO</p>
                     
                     <input type="checkbox" id="dir_ip_r1r2" name="dir_ip_r1r2"><label for="dir_ip_r1r2"> Dirección IP</label>
                     <input type="checkbox" id="pass_vty_r1r2" name="pass_vty_r1r2"><label for="pass_vty_r1r2"> Contraseña vty 0 4</label>
@@ -149,7 +149,7 @@
                     <input type="checkbox" id="pass_r2r3" name="pass_r2r3"><label for="pass_r2r3"> Contraseña pass</label>
                     <input type="checkbox" id="pass_secret_r2r3" name="pass_secret_r2r3"><label for="pass_secret_r2r3"> Contraseña pass secret</label>                                        
                     <aside>
-                        <input type="text" id="texto" name="texto">
+                        <input type="text" id="txtR2" name="txtR2">
                         <button type="submit">Actualizar</button>
                     </aside>
                 </section>
@@ -188,7 +188,7 @@
                     </tr>
                     <tr>
                         <td>Dominio</td>
-                        <td>mex.mx.uaem.com</td>
+                        <td class="dominio">mex.mx.uaem.com</td>
                     </tr>
                 </table>
                 <section class="checkboxAll Contraseñas_Admin">
@@ -199,7 +199,7 @@
                     <input type="checkbox" id="pass_secret_r3" name="pass_secret_r3"><label for="pass_secret_r3"> Contraseña pass secret</label>                                        
                         
                     <aside>
-                        <input type="text" id="texto" name="texto">
+                        <input type="text" id="txtR3" name="txtR3">
                         <button type="submit">Actualizar</button>
                     </aside>
                 </section>
@@ -211,7 +211,7 @@
             
             <div id="tableSwitchsRouterUno" class="inactive table">
                 <table >
-                    <caption>Configuración de los Switchs del Router CDMX</caption>
+                    <caption id="capt_switch_routerUno">Configuración de los Switchs del Router CDMX</caption>
                     <td></td><td>Switch #1</td>
                     <tr>
                         <td>Dirección IP:</td>
@@ -236,7 +236,7 @@
                     <input type="checkbox" id="ip_vlan_switch_r1" name="ip_vlan_switch_r1"><label for="ip_vlan_switch_r1"> Dirección ip vlan</label>                    
                     <input type="checkbox" id="sub_mask_vlan_switch_r1" name="sub_mask_vlan_switch_r1"><label for="sub_mask_vlan_switch_r1"> Subnet Mask Vlan</label>
                     <aside>
-                        <input type="text" id="texto" name="texto">
+                        <input type="text" id="txtSwitch1R1" name="txtSwitch1R1">
                         <button type="submit">Actualizar</button>
                     </aside>
                 </section>
@@ -268,7 +268,7 @@
                     <input type="checkbox" id="ip_vlan_switch_r2" name="ip_vlan_switch_r2"><label for="ip_vlan_switch_r2"> Dirección ip vlan</label>                    
                     <input type="checkbox" id="sub_mask_vlan_switch_r2" name="sub_mask_vlan_switch_r2"><label for="sub_mask_vlan_switch_r2"> Subnet Mask Vlan</label>
                     <aside>
-                        <input type="text" id="texto" name="texto">
+                        <input type="text" id="txtSwitch1R2" name="txtSwitch1R2">
                         <button type="submit">Actualizar</button>
                     </aside>
                 </section>
@@ -300,7 +300,7 @@
                     <input type="checkbox" id="ip_vlan_switch_r3" name="ip_vlan_switch_r3"><label for="ip_vlan_switch_r3"> Dirección ip vlan</label>                    
                     <input type="checkbox" id="sub_mask_vlan_switch_r3" name="sub_mask_vlan_switch_r3"><label for="sub_mask_vlan_switch_r3"> Subnet Mask Vlan</label>
                     <aside>
-                        <input type="text" id="texto" name="texto">
+                        <input type="text" id="txtSwitch1R3" name="txtSwitch1R3">
                         <button type="submit">Actualizar</button>
                     </aside>
                 </section>
@@ -343,7 +343,7 @@
                     <input type="checkbox" id="sub_mask_machine_r1" name="sub_mask_machine_r1"><label for="sub_mask_machine_r1">Subnet Mask</label>
                     <input type="checkbox" id="def_gateway_machine_r1" name="def_gateway_machine_r1"><label for="def_gateway_machine_r1">Default Gateway</label>                                        
                     <aside>
-                        <input type="text" id="texto" name="texto">
+                        <input type="text" id="txtMachinesR1" name="txtMachinesR1">
                         <button type="submit">Actualizar</button>
                     </aside>
                 </section>
@@ -385,13 +385,13 @@
                     <input type="checkbox" id="sub_mask_machine_r2" name="sub_mask_machine_r2"><label for="sub_mask_machine_r2">Subnet Mask</label>
                     <input type="checkbox" id="def_gateway_machine_r2" name="def_gateway_machine_r2"><label for="def_gateway_machine_r2">Default Gateway</label>                                                                               
                     <aside>
-                        <input type="text" id="texto" name="texto">
+                        <input type="text" id="txtMachinesR2" name="txtMachinesR2">
                         <button type="submit">Actualizar</button>
                     </aside>
                 </section>
             </div>
-            <div id="tableMachinesRouterTres" class="inactive table">>
-                <table 
+            <div id="tableMachinesRouterTres" class="inactive table">
+                <table>
                     <caption>Configuración de las máquinas del router BR</caption>
                     <td></td>
                     <td >Maquina #1</td>
@@ -427,7 +427,7 @@
                     <input type="checkbox" id="sub_mask_machine_r3" name="sub_mask_machine_r3"><label for="sub_mask_machine_r3">Subnet Mask</label>
                     <input type="checkbox" id="def_gateway_machine_r3" name="def_gateway_machine_r3"><label for="def_gateway_machine_r3">Default Gateway</label>                                                                              
                     <aside>
-                        <input type="text" id="texto" name="texto">
+                        <input type="text" id="txtMachinesR3" name="txtMachinesR3">
                         <button type="submit">Actualizar</button>
                     </aside>
                 </section>
