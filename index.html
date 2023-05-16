@@ -9,7 +9,7 @@
 </head>
 <body onload="mueveReloj()">
     <!-- PRIMERA INTERFAZ -->
-    <form id="login-view" class="login" >
+    <form id="login-view" class="login " >
         <img src="./img/user.png" alt="user-img">
         <label for="username">Usuario</label>
         <input type="text" id="username" placeholder="Ejemplo: usuario1234" required>
@@ -48,14 +48,14 @@
 
             <div id="tableRouterUno" class="inactive table">
                 <table>
-                    <caption>Configuración Router CDMX </caption>
+                    <caption id="name">Configuración Router CDMX </caption>
                     <tr>
                         <td>Dirección IP: </td>
-                        <td>172.15.100.1</td>
+                        <td id="ip">172.15.100.1</td>
                     </tr>
                     <tr class="Contraseñas_Admin">
                         <td>Contraseña vty 0 4</td>
-                        <td>1234</td>
+                        <td id="pass_vty">1234</td>
                     </tr>
                     <tr class="Contraseñas_Admin">
                        <td>Contraseña console</td>
@@ -435,6 +435,6 @@
 
         </section>
     </div>
-    <script src="script.js"></script>
+    <script type="" src="script.js"></script>
 </body>
 </html>

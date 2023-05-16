@@ -1,4 +1,6 @@
-const clock = document.getElementById('clock')
+// import { changeValueOfRouter, config_red } from "./red";
+
+const clock = document.getElementById('clock');
 const login_view = document.getElementById('login-view'),
     $submit = document.getElementById("submit"),
     password = document.getElementById("password"),
@@ -6,7 +8,7 @@ const login_view = document.getElementById('login-view'),
     $visible = document.getElementById("visible");
 const first_view = document.getElementById('first-view'),
     btnStar = document.getElementById('btnStart'),
-    txtSpeak = document.getElementById('speak');;
+    txtSpeak = document.getElementById('speak');
 const second_view = document.getElementById('second-view'),
     btnCloseSesion = document.getElementById('btnCloseSesion'),
     welcome = document.getElementById('welcome'),
@@ -19,17 +21,17 @@ const recognition = new webkitSpeechRecognition();
 
 const arrAllViews = [first_view, second_view, login_view]
 
-phrases = [
+let phrases = [
     'Soy el ingeniero Bruno Nicolás.',
     'Soy Eduardo García Marín, el ayudante.',
     'Usuario.'
 ]
-users = [
+let users = [
     'Administrador', 
     'Ayudante', 
     'Usuario'
 ]
-passwords = [
+let passwords = [
     '25$eptember2000!',
     '29Enero2000',
     '16)ecember2000'
@@ -55,7 +57,7 @@ login_view.addEventListener("click", (e)=>{
             alert('Revisa tu usuario y contraseña')
         }
     }
-})
+});
 
 function isValidLogin(user, pass){
     for(let i=0; i<users.length; i++){
@@ -92,64 +94,64 @@ btnStar.addEventListener('click', ()=>{
 btnCloseSesion.addEventListener('click', ()=>{
     openView(login_view);
     document.title ="Iniciar Sesion";
-})
+});
 
-recognition.onresult = (event) => {
-    const texto = event.results[event.results.length - 1][0].transcript;
-    console.log(texto)
-    for(let i = 0; i<phrases.length; i++){
-        if (texto == phrases[who]){
-            showSesion(users[who], time() )
-            document.title ="Bienvenido " + users[who];
-            whoStartSesion(users[who]);
-        }
-        else{
-            txtSpeak.style.color = 'red'
-            txtSpeak.style.textDecoration = 'line-through'
-            txtSpeak.innerText = texto;
-        }
-    }
-    
-}
-function showSesion(person, hora){
-    second_view.classList.remove('inactive');
-    first_view.classList.add('inactive');
-    welcome.innerText = 'Bienvenido sea ' + person
-    clock_start.innerText = 'Inicio sesión a las ' + hora
-    
-}
-
-function whoStartSesion(persona){
-    switch(persona){
-        case 'Administrador':
-
-        break;
-        case 'Ayudante':
-            for(let i = 0; i < contrasena.length; i++)    
-            {
-                contrasena[i].style.display = 'none'
+    recognition.onresult = (event) => {
+        const texto = event.results[event.results.length - 1][0].transcript;
+        console.log(texto)
+        for(let i = 0; i<phrases.length; i++){
+            if (texto == phrases[who]){
+                showSesion(users[who], time() )
+                document.title ="Bienvenido " + users[who];
+                whoStartSesion(users[who]);
             }
-        break;
-        case 'Usuario':
-            btnRouterUno.classList.add('inactive')
-            btnRouterDos.classList.add('inactive')
-            btnRouterTres.classList.add('inactive')
-        break;
+            else{
+                txtSpeak.style.color = 'red'
+                txtSpeak.style.textDecoration = 'line-through'
+                txtSpeak.innerText = texto;
+            }
+        }
+        
     }
-}
 
-function time(){
-    momentoActual = new Date()
-    hora = momentoActual.getHours()
-    minuto = momentoActual.getMinutes()
-    segundo = momentoActual.getSeconds()
-    return hora + ':' + minuto + ':' + segundo
-}
+    function showSesion(person, hora){
+        second_view.classList.remove('inactive');
+        first_view.classList.add('inactive');
+        welcome.innerText = 'Bienvenido sea ' + person
+        clock_start.innerText = 'Inicio sesión a las ' + hora
+    }
 
-function mueveReloj(){
-    clock.innerText = 'La hora es ' + time()
-    setTimeout("mueveReloj()",1000)
-}
+    function whoStartSesion(persona){
+        switch(persona){
+            case 'Administrador':
+
+            break;
+            case 'Ayudante':
+                for(let i = 0; i < contrasena.length; i++)    
+                {
+                    contrasena[i].style.display = 'none'
+                }
+            break;
+            case 'Usuario':
+                btnRouterUno.classList.add('inactive')
+                btnRouterDos.classList.add('inactive')
+                btnRouterTres.classList.add('inactive')
+            break;
+        }
+    }
+
+    function time(){
+        momentoActual = new Date()
+        hora = momentoActual.getHours()
+        minuto = momentoActual.getMinutes()
+        segundo = momentoActual.getSeconds()
+        return hora + ':' + minuto + ':' + segundo
+    }
+
+    function mueveReloj(){  
+        clock.innerText = 'La hora es ' + time()
+        setTimeout("mueveReloj()", 1000)
+    }
 
 //Lógica y funciones para la configuración
 const btnRouterUno = document.getElementById('routerUno'),
@@ -191,18 +193,21 @@ const btnRouterTres = document.getElementById('routerTres'),
     }
 
     //Funcion openTableR1 es para activar las funciones de poner texto a los botones y abrir la vista de la tabla del router.
+    const openTableR1 = () => toggleTableRouter(1)
     btnRouterUno.addEventListener('click', 
-    openTableR1 = () => toggleTableRouter(1));
+    openTableR1);
     btnSwitchRouterUno.addEventListener('click', openTableSwitchR1);
     btnMachinesRouterUno.addEventListener('click', openTableMachinesR1);
     
+    const openTableR2 = () => toggleTableRouter(2)
     btnRouterDos.addEventListener('click', 
-    openTableR2 = () => toggleTableRouter(2));
+    openTableR2);
     btnSwitchRouterDos.addEventListener('click', openTableSwitchR2);
     btnMachinesRouterDos.addEventListener('click', openTableMachinesR2);
 
+    const openTableR3 = () => toggleTableRouter(3);
     btnRouterTres.addEventListener('click', 
-    openTableR3 = () => toggleTableRouter(3));
+    openTableR3);
     btnSwitchRouterTres.addEventListener('click', openTableSwitchR3);
     btnMachinesRouterTres.addEventListener('click', openTableMachinesR3);
 
