@@ -43,39 +43,39 @@
             <img class="redImagen" id="imgRed" src="img/red.png" alt="Imagen de la red">
             <hr><br>
             <button id="routerUno" class="btn"> Router CDMX </button>
-            <button id="routerDos" class="btn"> Router TOREO </button>
+            <button id="routerDos" class="btn"></button>
             <button id="routerTres" class="btn"> Router Zentralia </button>
 
             <div id="tableRouterUno" class="inactive table">
                 <table>
-                    <caption id="capt_routerUno">Configuración Router CDMX </caption>
+                    <caption id="capt_routerUno"></caption>
                     <tr>
                         <td>Dirección IP: </td>
-                        <td id="ip_routerUno">172.15.100.1</td>
+                        <td id="ip_routerUno"></td>
                     </tr>
                     <tr class="Contraseñas_Admin">
                         <td>Contraseña vty 0 4</td>
-                        <td id="pass_vty_routerUno">1234</td>
+                        <td id="pass_vty_routerUno"></td>
                     </tr>
                     <tr class="Contraseñas_Admin">
                        <td>Contraseña console</td>
-                        <td id="pass_con_routerUno">L4v1g4admn4h</td>
+                        <td id="pass_con_routerUno"></td>
                     </tr>
                     <tr class="Contraseñas_Admin">
                         <td>Contraseña pass</td>
-                        <td id="pass_routerUno">Cisco</td>
+                        <td id="pass_routerUno"></td>
                     </tr>
                     <tr class="Contraseñas_Admin">
                         <td>Contraseña pass secret</td>
-                        <td id="pass_secret_routerUno">1ng3n13r14</td>
+                        <td id="pass_secret_routerUno"></td>
                     </tr>
                     <tr>
                         <td>Mensaje del día: </td>
-                        <td id="msj_routerUno">"Sólo el administrador puede hacer modificaciones en el Router CDMX"</td>
+                        <td id="msj_routerUno"></td>
                     </tr>
                     <tr>
                         <td>Dominio</td>
-                        <td class="dominio">mex.mx.uaem.com</td>
+                        <td class="dominio"></td>
                     </tr>
                 </table>
                 <section class="checkboxAll router Contraseñas_Admin">
@@ -96,58 +96,61 @@
             </div>            
             <div id="tableRouterDos" class="inactive table">
                 <table>
-                    <caption id="caption_routerDos_1">Configuración Router TOREO </caption>
-                    <th></th><th id="title"> Router Cdmx - TOREO</th><th>Router Toreo - Br</th>
+                    <caption id="caption_routerDos"></caption>
+                    <th></th><th id="title"></th><th id="titleDos"></th>
                     <tr>
                         <td>Dirección IP: </td>
-                        <td>172.15.100.2</td>
-                        <td>172.15.110.1</td>
+                        <td id="ip_uno_routerDos"></td>
+                        <td id="ip_dos_routerDos"></td>
                     </tr>
                     <tr class="Contraseñas_Admin">
                         <td>Contraseña vty 0 4</td>
-                        <td>1234</td>
-                        <td>1234</td>
+                        <td id="pass04_uno_routerDos"></td>
+                        <td id="pass04_dos_routerDos"></td>
                     </tr>
                     <tr class="Contraseñas_Admin">
                         <td>Contraseña console</td>
-                        <td>L4v1g4admn4h</td>
-                        <td>L4v1g4admn4h</td>
+                        <td id="pass_consol_uno"></td>
+                        <td id="pass_consol_dos"></td>
                     </tr>
                     <tr class="Contraseñas_Admin">
                         <td>Contraseña pass</td>
-                        <td>Cisco</td>
-                        <td>Cisco</td>
+                        <td id="pass_uno"></td>
+                        <td id="pass_dos"></td>
                     </tr>
                     <tr class="Contraseñas_Admin">
                         <td>Contraseña pass secret</td>
-                        <td>1ng3n13r14</td>
-                        <td>1ng3n13r14</td>
+                        <td id="pass_secret_uno"></td>
+                        <td id="pass_secret_dos"></td>
                     </tr>
                     <tr>
                         <td>Mensaje del día: </td>
-                        <td id="td_Router2_1">"Sólo el administrador puede hacer modificaciones en el Router CDMX - TOREO"</td>
-                        <td>"Sólo el administrador puede hacer modificaciones en el Router TOREO - ZENTRALIA"</td>
+                        <td id="td_Router2_1"></td>
+                        <td id="td_Router2_2"></td>
                     </tr>
                     <tr>
                         <td>Dominio</td>
-                        <td colspan="2" class="dominio">mex.mx.uaem.com</td>
+                        <td colspan="2" class="dominio"></td>
                     </tr>
                 </table>
-                <section class="checkboxAll Contraseñas_Admin">
-                    <p id="titleInput">CDMX - TOREO</p>
+                <section class="div">
+                    <div class="checkboxAll Contraseñas_Admin">
+                        <p id="titleInput"></p>
+                        
+                        <input type="checkbox" id="dir_ip_r1r2" name="dir_ip_r1r2"><label for="dir_ip_r1r2"> Dirección IP</label>
+                        <input type="checkbox" id="pass_vty_r1r2" name="pass_vty_r1r2"><label for="pass_vty_r1r2"> Contraseña vty 0 4</label>
+                        <input type="checkbox" id="pass_con_r1r2" name="pass_con_r1r2"><label for="pass_con_r1r2"> Contraseña console</label>                    
+                        <input type="checkbox" id="pass_r1r2" name="pass_r1r2"><label for="pass_r1r2"> Contraseña pass</label>
+                        <input type="checkbox" id="pass_secret_r1r2" name="pass_secret_r1r2"><label for="pass_secret_r1r2"> Contraseña pass secret</label>                                        
+                        
                     
-                    <input type="checkbox" id="dir_ip_r1r2" name="dir_ip_r1r2"><label for="dir_ip_r1r2"> Dirección IP</label>
-                    <input type="checkbox" id="pass_vty_r1r2" name="pass_vty_r1r2"><label for="pass_vty_r1r2"> Contraseña vty 0 4</label>
-                    <input type="checkbox" id="pass_con_r1r2" name="pass_con_r1r2"><label for="pass_con_r1r2"> Contraseña console</label>                    
-                    <input type="checkbox" id="pass_r1r2" name="pass_r1r2"><label for="pass_r1r2"> Contraseña pass</label>
-                    <input type="checkbox" id="pass_secret_r1r2" name="pass_secret_r1r2"><label for="pass_secret_r1r2"> Contraseña pass secret</label>                                        
-    
-                    <p>TOREO - ZENTRALIA</p>
-                    <input type="checkbox" id="dir_ip_r2r3" name="dir_ip_r2r3"><label for="dir_ip_r2r3"> Dirección IP</label>
-                    <input type="checkbox" id="pass_vty_r2r3" name="pass_vty_r2r3"><label for="pass_vty_r2r3"> Contraseña vty 0 4</label>
-                    <input type="checkbox" id="pass_con_r2r3" name="pass_con_r2r3"><label for="pass_con_r2r3"> Contraseña console</label>                    
-                    <input type="checkbox" id="pass_r2r3" name="pass_r2r3"><label for="pass_r2r3"> Contraseña pass</label>
-                    <input type="checkbox" id="pass_secret_r2r3" name="pass_secret_r2r3"><label for="pass_secret_r2r3"> Contraseña pass secret</label>                                        
+                        <p id="titleInput2"></p>
+                        <input type="checkbox" id="dir_ip_r2r3" name="dir_ip_r2r3"><label for="dir_ip_r2r3"> Dirección IP</label>
+                        <input type="checkbox" id="pass_vty_r2r3" name="pass_vty_r2r3"><label for="pass_vty_r2r3"> Contraseña vty 0 4</label>
+                        <input type="checkbox" id="pass_con_r2r3" name="pass_con_r2r3"><label for="pass_con_r2r3"> Contraseña console</label>                    
+                        <input type="checkbox" id="pass_r2r3" name="pass_r2r3"><label for="pass_r2r3"> Contraseña pass</label>
+                        <input type="checkbox" id="pass_secret_r2r3" name="pass_secret_r2r3"><label for="pass_secret_r2r3"> Contraseña pass secret</label>                                        
+                    </div>
                     <aside>
                         <input type="text" id="txtR2" name="txtR2">
                         <button type="submit">Actualizar</button>

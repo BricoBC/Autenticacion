@@ -100,6 +100,7 @@
     #render > div{
         padding: 10px 0;
     }
+        
     .checkboxAll{
         margin: 10px 5px;
         display: flex;
@@ -132,7 +133,7 @@
         padding: 0.5rem;
     }
     .btn{
-        width: 130px;
+        width: 150px;
         cursor: pointer;
     }
 

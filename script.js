@@ -1,13 +1,13 @@
 let config_red = {
     "router": { //Información de todos los routers
-        "name": ["CDMX", "Toreo", "Zentralia"],
+        "name": ["CDMX", "TOREO", "ZENTRALIA"],
         "ip_v4": [["172.15.100.1"], //El tamaño del arreglo es igual a las conexiones que tiene con otro router
-        ["172.15.100.2", "172.15.110.1"], 
+        ["172.15.100.1", "172.15.110.2"], 
         ["172.15.110.2"]],
         "pass_vty": ["1234", "5678", "91012"], //Hacer un arreglo para cada router
-        "pass_con": ["L4v1g4admn4h", "L4v1g4admn4h", "L4v1g4admn4h" ],
-        "pass": ["Cisco", "Cisco", "Cisco"],
-        "pass_secret": ["1ng3n13r14", "1ng3n13r14", "1ng3n13r14"],
+        "pass_con": ["L4v1g4admn4h", ["L4v1g4admn4h", "L4v1g4admn4h"], "L4v1g4admn4h" ],
+        "pass": ["Cisco", ["Cisco", "Cisco"], "Cisco"],
+        "pass_secret": ["1ng3n13r14", ["1ng3n13r14_1", "1ng3n13r14_2"], "1ng3n13r14"],
         "subnet_mask": "255.255.0.0",
         "mensaje": [["Sólo el administrador puede hacer modificaciones en el Router CDMX"],
         ["Sólo el administrador puede hacer modificaciones en el Router CDMX - TOREO", "Sólo el administrador puede hacer modificaciones en el Router TOREO - ZENTRALIA"],
@@ -64,7 +64,7 @@ function updateRouterUno(){
     const pass_secret = document.getElementById('pass_secret_routerUno');
     pass_secret.innerText = config_red["router"]["pass_secret"][0];
     const msj_router = document.getElementById('msj_routerUno');
-    msj_router.innerText = 'Sólo el administrador puede hacer modificaciones en el ' + config_red["router"]["name"][0];
+    msj_router.innerText = 'Sólo el administrador puede hacer modificaciones en el Router' + config_red["router"]["name"][0];
 
     //Router 2
     const titleR2 = document.getElementById('title');
@@ -74,6 +74,48 @@ function updateRouterUno(){
     const td = document.getElementById('td_Router2_1');
     td.innerText = "Sólo el administrador puede hacer modificaciones en el Router " + config_red["router"]["name"][0] +'-'+config_red["router"]["name"][1]
 }
+updateRouterUno();
+
+function updateRouterDos(){
+    const btn = document.getElementById('routerDos');
+    btn.innerText = 'Router ' + config_red["router"]["name"][1];
+    const caption = document.getElementById('caption_routerDos');
+    caption.innerText = 'Configuración Router ' + config_red["router"]["name"][1];
+    const titleUno = document.getElementById('title');
+    const titleDos = document.getElementById('titleDos');
+    titleUno.innerText = 'Router ' + config_red["router"]["name"][0] + ' - ' + config_red["router"]["name"][1];
+    titleDos.innerText = 'Router ' + config_red["router"]["name"][1] + ' - ' + config_red["router"]["name"][2];
+    const ip = document.getElementById('ip_uno_routerDos');
+    const ip2 = document.getElementById('ip_dos_routerDos');
+    ip.innerText = config_red["router"]['ip_v4'][1][0];
+    ip2.innerText = config_red["router"]['ip_v4'][1][1];
+    const pass_1_vty04 = document.getElementById('pass04_uno_routerDos');
+    const pass_2_vty04 = document.getElementById('pass04_dos_routerDos');
+    pass_1_vty04.innerText = config_red["router"]["pass_vty"][1];
+    pass_2_vty04.innerText = config_red["router"]["pass_vty"][1];
+    const pass_con_1 = document.getElementById('pass_consol_uno');
+    const pass_con_2 = document.getElementById('pass_consol_dos');
+    pass_con_1.innerText = config_red["router"]["pass_con"][1][0];
+    pass_con_2.innerText = config_red["router"]["pass_con"][1][1];
+    const pass_1 = document.getElementById('pass_uno');
+    const pass_2 = document.getElementById('pass_dos');
+    pass_1.innerText = config_red["router"]["pass"][1][0];
+    pass_2.innerText = config_red["router"]["pass"][1][1];
+    const pass_secret_uno = document.getElementById('pass_secret_uno');
+    const pass_secret_dos = document.getElementById('pass_secret_dos');
+    pass_secret_uno.innerText = config_red["router"]["pass_secret"][1][0];
+    pass_secret_dos.innerText = config_red["router"]["pass_secret"][1][1];
+    const msj1 = document.getElementById('td_Router2_1');
+    const msj2 = document.getElementById('td_Router2_2');
+    msj1.innerText = 'Sólo el administrador puede hacer modificaciones en el ' + config_red["router"]["name"][0] + '-' + config_red["router"]["name"][1];
+    msj2.innerText = 'Sólo el administrador puede hacer modificaciones en el ' + config_red["router"]["name"][1] + '-' + config_red["router"]["name"][2];
+    
+    const titleTd = document.getElementById('titleInput');
+    const titleId2 = document.getElementById('titleInput2');
+    titleTd.innerText = config_red["router"]["name"][0] + ' - ' + config_red["router"]["name"][1];
+    titleId2.innerText = config_red["router"]["name"][1] + ' - ' + config_red["router"]["name"][2];
+}
+updateRouterDos()
 
 function updateDominio(){
     const dominio = document.getElementsByClassName('dominio');
@@ -81,6 +123,7 @@ function updateDominio(){
         dominio[i].innerText = config_red["router"]["dominio"];
     }
 }
+updateDominio();
 
 const clock = document.getElementById('clock');
 const login_view = document.getElementById('login-view'),
