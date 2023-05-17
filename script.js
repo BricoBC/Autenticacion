@@ -5,10 +5,9 @@ let config_red = {
         ["172.15.100.1", "172.15.110.2"], 
         ["172.15.110.2"]],
         "pass_vty": ["1234", "5678", "91012"], //Hacer un arreglo para cada router
-        "pass_con": ["L4v1g4admn4h", ["L4v1g4admn4h", "L4v1g4admn4h"], "L4v1g4admn4h" ],
-        "pass": ["Cisco", ["Cisco", "Cisco"], "Cisco"],
-        "pass_secret": ["1ng3n13r14", ["1ng3n13r14_1", "1ng3n13r14_2"], "1ng3n13r14"],
-        "subnet_mask": "255.255.0.0",
+        "pass_con": ["L4v1g4admn4h_R1", ["L4v1g4admn4h_R2", "L4v1g4admn4h_R2"], "L4v1g4admn4h_R3" ],
+        "pass": ["Cisco_r1", ["Cisco_R2", "Cisco_r2"], "Cisco_r3"],
+        "pass_secret": ["1ng3n13r14_r1", ["1ng3n13r14_1_r2", "1ng3n13r14_2_r2"], "1ng3n13r14_r3"],
         "mensaje": [["Sólo el administrador puede hacer modificaciones en el Router CDMX"],
         ["Sólo el administrador puede hacer modificaciones en el Router CDMX - TOREO", "Sólo el administrador puede hacer modificaciones en el Router TOREO - ZENTRALIA"],
         ["Sólo el administrador puede hacer modificaciones en el Router ZENTRALIA"]],
@@ -116,6 +115,34 @@ function updateRouterDos(){
     titleId2.innerText = config_red["router"]["name"][1] + ' - ' + config_red["router"]["name"][2];
 }
 updateRouterDos()
+
+function updateRouterTres(){
+     const btn = document.getElementById('routerTres');
+    btn.innerText = 'Router ' + config_red["router"]["name"][2];
+    const caption = document.getElementById('capt_routerTres');
+    caption.innerText = 'Configuración Router ' + config_red["router"]["name"][2];
+    const dir_ip = document.getElementById('ip_routerTres');
+    dir_ip.innerText = config_red["router"]['ip_v4'][2];
+    const pass_vty = document.getElementById('pass_vty_routerTres');
+    pass_vty.innerText = config_red["router"]["pass_vty"][2];
+    const pass_con = document.getElementById('pass_con_routerTres');
+    pass_con.innerText = config_red["router"]["pass_con"][2];
+    const pass = document.getElementById('pass_routerTres');
+    pass.innerText = config_red["router"]["pass"][2];
+    const pass_secret = document.getElementById('pass_secret_routerTres');
+    pass_secret.innerText = config_red["router"]["pass_secret"][2];
+    const msj_router = document.getElementById('msj_routerTres');
+    msj_router.innerText = 'Sólo el administrador puede hacer modificaciones en el Router ' + config_red["router"]["name"][2];
+
+    //Router 2
+    // const titleR2 = document.getElementById('title');
+    // titleR2.innerText = 'Configuración ' + config_red["router"]["name"][0]+' - '+config_red["router"]["name"][1];
+    // const titleInputs = document.getElementById('titleInput');
+    // titleInputs.innerText = config_red["router"]["name"][0]+' - '+config_red["router"]["name"][1];
+    // const td = document.getElementById('td_Router2_1');
+    // td.innerText = "Sólo el administrador puede hacer modificaciones en el Router " + config_red["router"]["name"][0] +'-'+config_red["router"]["name"][1]
+}
+updateRouterTres();
 
 function updateDominio(){
     const dominio = document.getElementsByClassName('dominio');
