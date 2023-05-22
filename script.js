@@ -387,6 +387,66 @@ const btnRouterTres = document.getElementById('routerTres'),
 
     btnCloseImag.addEventListener('click', toggleImag);
 
+    //change values
+    btnR1.addEventListener('click', changeValueR1);
+
+    function changeValueR1(){
+        if (chckBxR1Ip.checked){
+            config_red.router.ip_v4[0] = txtBxR1.value
+        }
+        if (chckBxR1Pass04.checked){
+            config_red.router.pass_vty[0] = txtBxR1.value
+        }
+        if (chckBxR1PassCon.checked){
+            config_red.router.pass_con[0] = txtBxR1.value
+        }
+        if (chckBxR1Pass.checked){
+            config_red.router.pass[0] = txtBxR1.value
+        }
+        if (chckBxR1PassSec.checked){
+            config_red.router.pass_secret[0] = txtBxR1.value
+        }
+        updateRouterUno()
+    }
+
+    function changeValueR2(){
+        if (chckBxR2Ip.checked){
+            config_red.router.ip_v4[0] = txtBxR2.value
+        }
+        if (chckBxR2Pass04.checked){
+            config_red.router.pass_vty[0] = txtBxR2.value
+        }
+        if (chckBxR2PassCon.checked){
+            config_red.router.pass_con[0] = txtBxR2.value
+        }
+        if (chckBxR2Pass.checked){
+            config_red.router.pass[0] = txtBxR2.value
+        }
+        if (chckBxR2PassSec.checked){
+            config_red.router.pass_secret[0] = txtBxR2.value
+        }
+        updateRouterDos()
+    }
+
+    function changeValueR3(){
+        if (chckBxR3Ip.checked){
+            config_red.router.ip_v4[0] = txtBxR3.value
+        }
+        if (chckBxR3Pass04.checked){
+            config_red.router.pass_vty[0] = txtBxR3.value
+        }
+        if (chckBxR3PassCon.checked){
+            config_red.router.pass_con[0] = txtBxR3.value
+        }
+        if (chckBxR3Pass.checked){
+            config_red.router.pass[0] = txtBxR3.value
+        }
+        if (chckBxR3PassSec.checked){
+            config_red.router.pass_secret[0] = txtBxR3.value
+        }
+        updateRouterTres()
+    }
+
     function toggleImag(){
         let isShowImagen = !imag.classList.contains('inactive');
         if (isShowImagen){
