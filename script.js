@@ -53,7 +53,7 @@ function updateRouterUno(){
     const caption = document.getElementById('capt_routerUno');
     caption.innerText = 'Configuración Router ' + config_red["router"]["name"][0];
     const dir_ip = document.getElementById('ip_routerUno');
-    dir_ip.innerText = config_red["router"]['ip_v4'][0][0];
+    dir_ip.innerText = config_red["router"]['ip_v4'][0];
     const pass_vty = document.getElementById('pass_vty_routerUno');
     pass_vty.innerText = config_red["router"]["pass_vty"][0];
     const pass_con = document.getElementById('pass_con_routerUno');
@@ -168,19 +168,24 @@ const second_view = document.getElementById('second-view'),
     btnCloseImag = document.getElementById('btnCloseImag'),
     imag = document.getElementById('imgRed');
     const contrasena = document.getElementsByClassName('Contraseñas_Admin');
-const chckBxR1Ip = document.getElementById('dir_ip_r1'),
-        chckBxR1Pass04 = document.getElementById('pass_vty_r1'),
-        chckBxR1PassCon = document.getElementById('pass_con_r1'),
-        chckBxR1Pass = document.getElementById('pass_r1'),
-        chckBxR1PassSec = document.getElementById('pass_secret_r1'),
-        txtBxR1 = document.getElementById('txtR1');
+const chckBxR1R2Ip = document.getElementById('dir_ip_r1r2'),
+        chckBxR1R2Pass04 = document.getElementById('pass_vty_r1r2'),
+        chckBxR1R2PassCon = document.getElementById('pass_con_r1r2'),
+        chckBxR1R2Pass = document.getElementById('pass_r1r2'),
+        chckBxR1R2PassSec = document.getElementById('pass_secret_r1r2'),
+        txtBxR1 = document.getElementById('txtR1'),
         btnR1 = document.getElementById('btnR1');
-const chckBxR2Ip = document.getElementById('dir_ip_r2'),
+const chckBxR2R3Ip = document.getElementById('dir_ip_r2r3'),
+        chckBxR2R3Pass04 = document.getElementById('pass_vty_r2r3'),
+        chckBxR2R3PassCon = document.getElementById('pass_con_r2r3'),
+        chckBxR2R3Pass = document.getElementById('pass_r2r3'),
+        chckBxR2R3PassSec = document.getElementById('pass_secret_r2r3'),
+     chckBxR2Ip = document.getElementById('dir_ip_r2'),
         chckBxR2Pass04 = document.getElementById('pass_vty_r2'),
         chckBxR2PassCon = document.getElementById('pass_con_r2'),
         chckBxR2Pass = document.getElementById('pass_r2'),
         chckBxR2PassSec = document.getElementById('pass_secret_r2'),
-        txtBxR2 = document.getElementById('txtR2');
+        txtBxR2 = document.getElementById('txtR2'),
         btnR2 = document.getElementById('btnR2');
 const chckBxR3Ip = document.getElementById('dir_ip_r3'),
         chckBxR3Pass04 = document.getElementById('pass_vty_r3'),
@@ -389,6 +394,8 @@ const btnRouterTres = document.getElementById('routerTres'),
 
     //change values
     btnR1.addEventListener('click', changeValueR1);
+    btnR2.addEventListener('click', changeValueR2);
+    btnR3.addEventListener('click', changeValueR3);
 
     function changeValueR1(){
         if (chckBxR1Ip.checked){
@@ -410,20 +417,37 @@ const btnRouterTres = document.getElementById('routerTres'),
     }
 
     function changeValueR2(){
-        if (chckBxR2Ip.checked){
-            config_red.router.ip_v4[0] = txtBxR2.value
+        console.log(12)
+        if (chckBxR1R2Ip.checked){
+            config_red.router.ip_v4[1][0] = txtBxR2.value
         }
-        if (chckBxR2Pass04.checked){
-            config_red.router.pass_vty[0] = txtBxR2.value
+        if (chckBxR1R2Pass04.checked){
+            config_red.router.pass_vty[1][0] = txtBxR2.value
         }
-        if (chckBxR2PassCon.checked){
-            config_red.router.pass_con[0] = txtBxR2.value
+        if (chckBxR1R2PassCon.checked){
+            config_red.router.pass_con[1][0] = txtBxR2.value
         }
-        if (chckBxR2Pass.checked){
-            config_red.router.pass[0] = txtBxR2.value
+        if (chckBxR1R2Pass.checked){
+            config_red.router.pass[1][0] = txtBxR2.value
         }
-        if (chckBxR2PassSec.checked){
-            config_red.router.pass_secret[0] = txtBxR2.value
+        if (chckBxR1R2PassSec.checked){
+            config_red.router.pass_secret[1][0] = txtBxR2.value
+        }
+
+        if (chckBxR2R3Ip.checked){
+            config_red.router.ip_v4[1][1] = txtBxR2.value
+        }
+        if (chckBxR2R3Pass04.checked){
+            config_red.router.pass_vty[1][1] = txtBxR2.value
+        }
+        if (chckBxR2R3PassCon.checked){
+            config_red.router.pass_con[1][1] = txtBxR2.value
+        }
+        if (chckBxR2R3Pass.checked){
+            config_red.router.pass[1][1] = txtBxR2.value
+        }
+        if (chckBxR2R3PassSec.checked){
+            config_red.router.pass_secret[1][1] = txtBxR2.value
         }
         updateRouterDos()
     }
