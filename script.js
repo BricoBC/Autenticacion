@@ -403,18 +403,23 @@ btnR3.addEventListener('click', changeValueR3);
 function changeValueR1() {
     if (chckBxR1Ip.checked) {
         config_red.router.ip_v4[0] = txtBxR1.value
+        chckBxR1Ip.checked = false;
     }
     if (chckBxR1Pass04.checked) {
         config_red.router.pass_vty[0] = txtBxR1.value
+        chckBxR1Pass04.checked = false;
     }
     if (chckBxR1PassCon.checked) {
         config_red.router.pass_con[0] = txtBxR1.value
+        chckBxR1PassCon.checked = false;
     }
     if (chckBxR1Pass.checked) {
         config_red.router.pass[0] = txtBxR1.value
+        chckBxR1Pass.checked = false;
     }
     if (chckBxR1PassSec.checked) {
         config_red.router.pass_secret[0] = txtBxR1.value
+        chckBxR1PassSec.checked = false;
     }
     txtBxR1.value = ' ';
     updateRouterUno()
@@ -428,31 +433,40 @@ function changeValueR2() {
     }
     if (chckBxR1R2Pass04.checked) {
         config_red.router.pass_vty[1][0] = txtBxR2.value
+        chckBxR1R2Pass04.checked = false;
     }
     if (chckBxR1R2PassCon.checked) {
         config_red.router.pass_con[1][0] = txtBxR2.value
+        chckBxR1R2PassCon.checked = false;
     }
     if (chckBxR1R2Pass.checked) {
         config_red.router.pass[1][0] = txtBxR2.value
+        chckBxR1R2Pass.checked = false;
     }
     if (chckBxR1R2PassSec.checked) {
         config_red.router.pass_secret[1][0] = txtBxR2.value
+        chckBxR1R2PassSec.checked = false;
     }
 
     if (chckBxR2R3Ip.checked) {
         config_red.router.ip_v4[1][1] = txtBxR2.value
+        chckBxR2R3Ip.checked = false;
     }
     if (chckBxR2R3Pass04.checked) {
         config_red.router.pass_vty[1][1] = txtBxR2.value
+        chckBxR2R3Pass04.checked = false;
     }
     if (chckBxR2R3PassCon.checked) {
         config_red.router.pass_con[1][1] = txtBxR2.value
+        chckBxR2R3PassCon.checked = false;
     }
     if (chckBxR2R3Pass.checked) {
         config_red.router.pass[1][1] = txtBxR2.value
+        chckBxR2R3Pass.checked = false;
     }
     if (chckBxR2R3PassSec.checked) {
         config_red.router.pass_secret[1][1] = txtBxR2.value
+        chckBxR2R3PassSec.checked = false;
     }
     txtBxR2.value = ' ';
     updateRouterDos()
@@ -461,20 +475,23 @@ function changeValueR2() {
 function changeValueR3() {
     if (chckBxR3Ip.checked) {
         config_red.router.ip_v4[2] = txtBxR3.value
-        // chckBxR3Ip.checked = false;
+        chckBxR3Ip.checked = false;
     }
     if (chckBxR3Pass04.checked) {
         config_red.router.pass_vty[2] = txtBxR3.value
-        // chckBxR3Pass04.checked = false;
+        chckBxR3Pass04.checked = false;
     }
     if (chckBxR3PassCon.checked) {
         config_red.router.pass_con[2] = txtBxR3.value
+        chckBxR3PassCon.checked = false;
     }
     if (chckBxR3Pass.checked) {
         config_red.router.pass[2] = txtBxR3.value
+        chckBxR3Pass.checked = false;
     }
     if (chckBxR3PassSec.checked) {
         config_red.router.pass_secret[2] = txtBxR3.value
+        chckBxR3PassSec.checked = false;
     }
     updateRouterTres()
     txtBxR3.value = ' ';
