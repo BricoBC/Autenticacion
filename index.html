@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,10 @@
     <link href="styles.css" rel="stylesheet" type="text/css">
     <title>Login</title>
 </head>
+
 <body onload="mueveReloj()">
     <!-- PRIMERA INTERFAZ -->
-    <form id="login-view" class="login inactive" >
+    <form id="login-view" class="login">
         <img src="./img/user.png" alt="user-img">
         <label for="username">Usuario</label>
         <input type="text" id="username" placeholder="Ejemplo: usuario1234" required>
@@ -23,16 +25,18 @@
     </form>
     <!-- SEGUNDA INTERFAZ -->
     <div id="first-view" class="first inactive">
-            <section class="fila uno">
-                <h2 id="clock">La hora es</h2>
-            </section>
-            <section class="fila dos">
-                <button class="btnStart" id="btnStart"><img src="https://img.freepik.com/vector-premium/microfono-microfono-estilo-dibujo-ilustracion-vectorial_490811-1906.jpg" alt="microfono"></button>
-                <p id="speak"></p>
-            </section>  
+        <section class="fila uno">
+            <h2 id="clock">La hora es</h2>
+        </section>
+        <section class="fila dos">
+            <button class="btnStart" id="btnStart"><img
+                    src="https://img.freepik.com/vector-premium/microfono-microfono-estilo-dibujo-ilustracion-vectorial_490811-1906.jpg"
+                    alt="microfono"></button>
+            <p id="speak"></p>
+        </section>
     </div>
     <!-- VISTA PRINCIPAL -->
-    <div id="second-view" class="second">
+    <div id="second-view" class="second inactive">
         <div class="container">
             <h2 id="welcome"></h2>
             <h2 id="clock_start"> Inicio sesión a las </h2>
@@ -58,7 +62,7 @@
                         <td id="pass_vty_routerUno"></td>
                     </tr>
                     <tr class="Contraseñas_Admin">
-                       <td>Contraseña console</td>
+                        <td>Contraseña console</td>
                         <td id="pass_con_routerUno"></td>
                     </tr>
                     <tr class="Contraseñas_Admin">
@@ -80,10 +84,13 @@
                 </table>
                 <section class="checkboxAll router Contraseñas_Admin">
                     <input type="checkbox" id="dir_ip_r1" name="dir_ip_r1"><label for="dir_ip_r1"> Dirección IP</label>
-                    <input type="checkbox" id="pass_vty_r1" name="pass_vty_r1"><label for="pass_vty_r1"> Contraseña vty 0 4</label>
-                    <input type="checkbox" id="pass_con_r1" name="pass_con_r1"><label for="pass_con_r1"> Contraseña console</label>                    
+                    <input type="checkbox" id="pass_vty_r1" name="pass_vty_r1"><label for="pass_vty_r1"> Contraseña vty
+                        0 4</label>
+                    <input type="checkbox" id="pass_con_r1" name="pass_con_r1"><label for="pass_con_r1"> Contraseña
+                        console</label>
                     <input type="checkbox" id="pass_r1" name="pass_r1"><label for="pass_r1"> Contraseña pass</label>
-                    <input type="checkbox" id="pass_secret_r1" name="pass_secret_r1"><label for="pass_secret_r1"> Contraseña pass secret</label>                                        
+                    <input type="checkbox" id="pass_secret_r1" name="pass_secret_r1"><label for="pass_secret_r1">
+                        Contraseña pass secret</label>
                     <aside>
                         <input type="text" id="txtR1" name="txtR1">
                         <button id='btnR1' type="submit">Actualizar</button>
@@ -93,11 +100,13 @@
                     <button id="switchsRouterUno" class="btn Switch">Ver Switchs</button>
                     <button id="machinesRouterUno" class="btn Machines">Ver máquinas</button>
                 </section>
-            </div>            
+            </div>
             <div id="tableRouterDos" class="inactive table">
                 <table>
                     <caption id="caption_routerDos"></caption>
-                    <th></th><th id="title"></th><th id="titleDos"></th>
+                    <th></th>
+                    <th id="title"></th>
+                    <th id="titleDos"></th>
                     <tr>
                         <td>Dirección IP: </td>
                         <td id="ip_uno_routerDos"></td>
@@ -135,25 +144,35 @@
                 </table>
                 <section class="div">
                     <section class="inputs">
-                        <p id="titleInput"></p>  
+                        <p id="titleInput"></p>
                         <div class="checkboxes">
-                            <input type="checkbox" id="dir_ip_r1r2" name="dir_ip_r1r2"><label for="dir_ip_r1r2"> Dirección IP</label>
-                            <input type="checkbox" id="pass_vty_r1r2" name="pass_vty_r1r2"><label for="pass_vty_r1r2"> Contraseña vty 0 4</label>
-                            <input type="checkbox" id="pass_con_r1r2" name="pass_con_r1r2"><label for="pass_con_r1r2"> Contraseña console</label>                    
-                            <input type="checkbox" id="pass_r1r2" name="pass_r1r2"><label for="pass_r1r2"> Contraseña pass</label>
-                            <input type="checkbox" id="pass_secret_r1r2" name="pass_secret_r1r2"><label for="pass_secret_r1r2"> Contraseña pass secret</label>                                                               
-                        </div>                      
-                    </section> 
-                    <section class="inputs">                    
+                            <input type="checkbox" id="dir_ip_r1r2" name="dir_ip_r1r2"><label for="dir_ip_r1r2">
+                                Dirección IP</label>
+                            <input type="checkbox" id="pass_vty_r1r2" name="pass_vty_r1r2"><label for="pass_vty_r1r2">
+                                Contraseña vty 0 4</label>
+                            <input type="checkbox" id="pass_con_r1r2" name="pass_con_r1r2"><label for="pass_con_r1r2">
+                                Contraseña console</label>
+                            <input type="checkbox" id="pass_r1r2" name="pass_r1r2"><label for="pass_r1r2"> Contraseña
+                                pass</label>
+                            <input type="checkbox" id="pass_secret_r1r2" name="pass_secret_r1r2"><label
+                                for="pass_secret_r1r2"> Contraseña pass secret</label>
+                        </div>
+                    </section>
+                    <section class="inputs">
                         <p id="titleInput2"></p>
                         <div class="checkboxes">
-                            <input type="checkbox" id="dir_ip_r2r3" name="dir_ip_r2r3"><label for="dir_ip_r2r3"> Dirección IP</label>
-                            <input type="checkbox" id="pass_vty_r2r3" name="pass_vty_r2r3"><label for="pass_vty_r2r3"> Contraseña vty 0 4</label>
-                            <input type="checkbox" id="pass_con_r2r3" name="pass_con_r2r3"><label for="pass_con_r2r3"> Contraseña console</label>                    
-                            <input type="checkbox" id="pass_r2r3" name="pass_r2r3"><label for="pass_r2r3"> Contraseña pass</label>
-                            <input type="checkbox" id="pass_secret_r2r3" name="pass_secret_r2r3"><label for="pass_secret_r2r3"> Contraseña pass secret</label>                                        
+                            <input type="checkbox" id="dir_ip_r2r3" name="dir_ip_r2r3"><label for="dir_ip_r2r3">
+                                Dirección IP</label>
+                            <input type="checkbox" id="pass_vty_r2r3" name="pass_vty_r2r3"><label for="pass_vty_r2r3">
+                                Contraseña vty 0 4</label>
+                            <input type="checkbox" id="pass_con_r2r3" name="pass_con_r2r3"><label for="pass_con_r2r3">
+                                Contraseña console</label>
+                            <input type="checkbox" id="pass_r2r3" name="pass_r2r3"><label for="pass_r2r3"> Contraseña
+                                pass</label>
+                            <input type="checkbox" id="pass_secret_r2r3" name="pass_secret_r2r3"><label
+                                for="pass_secret_r2r3"> Contraseña pass secret</label>
                         </div>
-                        </section>
+                    </section>
                     <aside class="inputs">
                         <input type="text" id="txtR2" name="txtR2">
                         <button id="btnR2" type="submit">Actualizar</button>
@@ -199,11 +218,14 @@
                 </table>
                 <section class="checkboxAll Contraseñas_Admin">
                     <input type="checkbox" id="dir_ip_r3" name="dir_ip_r3"><label for="dir_ip_r3"> Dirección IP</label>
-                    <input type="checkbox" id="pass_vty_r3" name="pass_vty_r3"><label for="pass_vty_r3"> Contraseña vty 0 4</label>
-                    <input type="checkbox" id="pass_con_r3" name="pass_con_r3"><label for="pass_con_r3"> Contraseña console</label>                    
+                    <input type="checkbox" id="pass_vty_r3" name="pass_vty_r3"><label for="pass_vty_r3"> Contraseña vty
+                        0 4</label>
+                    <input type="checkbox" id="pass_con_r3" name="pass_con_r3"><label for="pass_con_r3"> Contraseña
+                        console</label>
                     <input type="checkbox" id="pass_r3" name="pass_r3"><label for="pass_r3"> Contraseña pass</label>
-                    <input type="checkbox" id="pass_secret_r3" name="pass_secret_r3"><label for="pass_secret_r3"> Contraseña pass secret</label>                                        
-                        
+                    <input type="checkbox" id="pass_secret_r3" name="pass_secret_r3"><label for="pass_secret_r3">
+                        Contraseña pass secret</label>
+
                     <aside>
                         <input type="text" id="txtR3" name="txtR3">
                         <button id="btnR3" type="submit">Actualizar</button>
@@ -214,11 +236,12 @@
                     <button id="machinesRouterTres" class="btn Machines">Ver máquinas</button>
                 </section>
             </div>
-            
+
             <div id="tableSwitchsRouterUno" class="inactive table">
-                <table >
+                <table>
                     <caption id="capt_switch_routerUno">Configuración de los Switchs del Router CDMX</caption>
-                    <td></td><td>Switch #1</td>
+                    <td></td>
+                    <td>Switch #1</td>
                     <tr>
                         <td>Dirección IP:</td>
                         <td>172.15.110.1</td>
@@ -236,7 +259,7 @@
                         <td>255.255.0.0</td>
                     </tr>
                 </table>
-                <section class="checkboxAll router Contraseñas_Admin">
+                <!-- <section class="checkboxAll router Contraseñas_Admin">
                     <input type="checkbox" id="ip_switch_r1" name="ip_switch_r1"><label for="ip_switch_r1"> Dirección IP</label>
                     <input type="checkbox" id="sub_mask_switch_r1" name="sub_mask_switch_r1"><label for="sub_mask_switch_r1"> Subnet Mask</label>
                     <input type="checkbox" id="ip_vlan_switch_r1" name="ip_vlan_switch_r1"><label for="ip_vlan_switch_r1"> Dirección ip vlan</label>                    
@@ -245,12 +268,13 @@
                         <input type="text" id="txtSwitch1R1" name="txtSwitch1R1">
                         <button type="submit">Actualizar</button>
                     </aside>
-                </section>
+                </section> -->
             </div>
             <div id="tableSwitchsRouterDos" class="inactive table">
-                <table >
+                <table>
                     <caption>Configuración de los Switchs del Router TOREO</caption>
-                    <td></td><td>Switch #1</td>
+                    <td></td>
+                    <td>Switch #1</td>
                     <tr>
                         <td>Dirección IP:</td>
                         <td>172.15.110.1</td>
@@ -268,21 +292,26 @@
                         <td>255.255.0.0</td>
                     </tr>
                 </table>
-                <section class="checkboxAll router Contraseñas_Admin">
-                    <input type="checkbox" id="ip_switch_r2" name="ip_switch_r2"><label for="ip_switch_r2"> Dirección IP</label>
-                    <input type="checkbox" id="sub_mask_switch_r2" name="sub_mask_switch_r2"><label for="sub_mask_switch_r2"> Subnet Mask</label>
-                    <input type="checkbox" id="ip_vlan_switch_r2" name="ip_vlan_switch_r2"><label for="ip_vlan_switch_r2"> Dirección ip vlan</label>                    
-                    <input type="checkbox" id="sub_mask_vlan_switch_r2" name="sub_mask_vlan_switch_r2"><label for="sub_mask_vlan_switch_r2"> Subnet Mask Vlan</label>
+                <!-- <section class="checkboxAll router Contraseñas_Admin">
+                    <input type="checkbox" id="ip_switch_r2" name="ip_switch_r2"><label for="ip_switch_r2"> Dirección
+                        IP</label>
+                    <input type="checkbox" id="sub_mask_switch_r2" name="sub_mask_switch_r2"><label
+                        for="sub_mask_switch_r2"> Subnet Mask</label>
+                    <input type="checkbox" id="ip_vlan_switch_r2" name="ip_vlan_switch_r2"><label
+                        for="ip_vlan_switch_r2"> Dirección ip vlan</label>
+                    <input type="checkbox" id="sub_mask_vlan_switch_r2" name="sub_mask_vlan_switch_r2"><label
+                        for="sub_mask_vlan_switch_r2"> Subnet Mask Vlan</label>
                     <aside>
                         <input type="text" id="txtSwitch1R2" name="txtSwitch1R2">
                         <button type="submit">Actualizar</button>
                     </aside>
-                </section>
+                </section> -->
             </div>
             <div id="tableSwitchsRouterTres" class="inactive table">
-                <table >
+                <table>
                     <caption>Configuración de los Switchs del router BR</caption>
-                    <td></td><td>Switch #1</td>
+                    <td></td>
+                    <td>Switch #1</td>
                     <tr>
                         <td>Dirección IP:</td>
                         <td>172.15.130.1</td>
@@ -300,25 +329,29 @@
                         <td>255.255.0.0</td>
                     </tr>
                 </table>
-                <section class="checkboxAll router Contraseñas_Admin">
-                    <input type="checkbox" id="ip_switch_r3" name="ip_switch_r3"><label for="ip_switch_r3"> Dirección IP</label>
-                    <input type="checkbox" id="sub_mask_switch_r3" name="sub_mask_switch_r3"><label for="sub_mask_switch_r3"> Subnet Mask</label>
-                    <input type="checkbox" id="ip_vlan_switch_r3" name="ip_vlan_switch_r3"><label for="ip_vlan_switch_r3"> Dirección ip vlan</label>                    
-                    <input type="checkbox" id="sub_mask_vlan_switch_r3" name="sub_mask_vlan_switch_r3"><label for="sub_mask_vlan_switch_r3"> Subnet Mask Vlan</label>
+                <!-- <section class="checkboxAll router Contraseñas_Admin">
+                    <input type="checkbox" id="ip_switch_r3" name="ip_switch_r3"><label for="ip_switch_r3"> Dirección
+                        IP</label>
+                    <input type="checkbox" id="sub_mask_switch_r3" name="sub_mask_switch_r3"><label
+                        for="sub_mask_switch_r3"> Subnet Mask</label>
+                    <input type="checkbox" id="ip_vlan_switch_r3" name="ip_vlan_switch_r3"><label
+                        for="ip_vlan_switch_r3"> Dirección ip vlan</label>
+                    <input type="checkbox" id="sub_mask_vlan_switch_r3" name="sub_mask_vlan_switch_r3"><label
+                        for="sub_mask_vlan_switch_r3"> Subnet Mask Vlan</label>
                     <aside>
                         <input type="text" id="txtSwitch1R3" name="txtSwitch1R3">
                         <button type="submit">Actualizar</button>
                     </aside>
-                </section>
+                </section> -->
             </div>
 
             <div id="tableMachinesRouterUno" class="inactive table">
-                <table >
+                <table>
                     <caption>Configuración de las máquinas del router CDMX</caption>
                     <td></td>
-                    <td >Maquina #1</td>
-                    <td >Maquina #2</td>
-                    <td >Maquina #3</td>
+                    <td>Maquina #1</td>
+                    <td>Maquina #2</td>
+                    <td>Maquina #3</td>
                     <tr>
                         <td>IPv4 Addres:</td>
                         <td>172.15.110.15</td>
@@ -342,25 +375,30 @@
                         <td colspan="3">172.15.162.5</td>
                     </tr>
                 </table>
-                <section class="checkboxAll router Contraseñas_Admin">
-                    <input type="checkbox" id="ipv4_machine1_r1" name="ipv4_machine1_r1"><label for="ipv4_machine1_r1">M1 Dirección IPV4</label>
-                    <input type="checkbox" id="ipv4_machine2_r1" name="ipv4_machine2_r1"><label for="ipv4_machine2_r1">M2 Dirección IPV4</label>
-                    <input type="checkbox" id="ipv4_machine3_r1" name="ipv4_machine3_r1"><label for="ipv4_machine3_r1">M3 Dirección IPV4</label>                    
-                    <input type="checkbox" id="sub_mask_machine_r1" name="sub_mask_machine_r1"><label for="sub_mask_machine_r1">Subnet Mask</label>
-                    <input type="checkbox" id="def_gateway_machine_r1" name="def_gateway_machine_r1"><label for="def_gateway_machine_r1">Default Gateway</label>                                        
+                <!-- <section class="checkboxAll router Contraseñas_Admin">
+                    <input type="checkbox" id="ipv4_machine1_r1" name="ipv4_machine1_r1"><label
+                        for="ipv4_machine1_r1">M1 Dirección IPV4</label>
+                    <input type="checkbox" id="ipv4_machine2_r1" name="ipv4_machine2_r1"><label
+                        for="ipv4_machine2_r1">M2 Dirección IPV4</label>
+                    <input type="checkbox" id="ipv4_machine3_r1" name="ipv4_machine3_r1"><label
+                        for="ipv4_machine3_r1">M3 Dirección IPV4</label>
+                    <input type="checkbox" id="sub_mask_machine_r1" name="sub_mask_machine_r1"><label
+                        for="sub_mask_machine_r1">Subnet Mask</label>
+                    <input type="checkbox" id="def_gateway_machine_r1" name="def_gateway_machine_r1"><label
+                        for="def_gateway_machine_r1">Default Gateway</label>
                     <aside>
                         <input type="text" id="txtMachinesR1" name="txtMachinesR1">
                         <button type="submit">Actualizar</button>
                     </aside>
-                </section>
+                </section> -->
             </div>
             <div id="tableMachinesRouterDos" class="inactive table">
-                <table >
+                <table>
                     <caption>Configuración de las máquinas del router TOREO</caption>
                     <td></td>
-                    <td >Maquina #1</td>
-                    <td >Maquina #2</td>
-                    <td >Maquina #3</td>
+                    <td>Maquina #1</td>
+                    <td>Maquina #2</td>
+                    <td>Maquina #3</td>
                     <tr>
                         <td>IPv4 Addres:</td>
                         <td>172.15.110.20</td>
@@ -384,25 +422,30 @@
                         <td colspan="3">172.15.162.5</td>
                     </tr>
                 </table>
-                <section class="checkboxAll router Contraseñas_Admin">
-                    <input type="checkbox" id="ipv4_machine1_r2" name="ipv4_machine1_r2"><label for="ipv4_machine1_r2">M1 Dirección IPV4</label>
-                    <input type="checkbox" id="ipv4_machine2_r2" name="ipv4_machine2_r2"><label for="ipv4_machine2_r2">M2 Dirección IPV4</label>
-                    <input type="checkbox" id="ipv4_machine3_r2" name="ipv4_machine3_r2"><label for="ipv4_machine3_r2">M3 Dirección IPV4</label>                    
-                    <input type="checkbox" id="sub_mask_machine_r2" name="sub_mask_machine_r2"><label for="sub_mask_machine_r2">Subnet Mask</label>
-                    <input type="checkbox" id="def_gateway_machine_r2" name="def_gateway_machine_r2"><label for="def_gateway_machine_r2">Default Gateway</label>                                                                               
+                <!-- <section class="checkboxAll router Contraseñas_Admin">
+                    <input type="checkbox" id="ipv4_machine1_r2" name="ipv4_machine1_r2"><label
+                        for="ipv4_machine1_r2">M1 Dirección IPV4</label>
+                    <input type="checkbox" id="ipv4_machine2_r2" name="ipv4_machine2_r2"><label
+                        for="ipv4_machine2_r2">M2 Dirección IPV4</label>
+                    <input type="checkbox" id="ipv4_machine3_r2" name="ipv4_machine3_r2"><label
+                        for="ipv4_machine3_r2">M3 Dirección IPV4</label>
+                    <input type="checkbox" id="sub_mask_machine_r2" name="sub_mask_machine_r2"><label
+                        for="sub_mask_machine_r2">Subnet Mask</label>
+                    <input type="checkbox" id="def_gateway_machine_r2" name="def_gateway_machine_r2"><label
+                        for="def_gateway_machine_r2">Default Gateway</label>
                     <aside>
                         <input type="text" id="txtMachinesR2" name="txtMachinesR2">
                         <button type="submit">Actualizar</button>
                     </aside>
-                </section>
+                </section> -->
             </div>
             <div id="tableMachinesRouterTres" class="inactive table">
                 <table>
                     <caption>Configuración de las máquinas del router BR</caption>
                     <td></td>
-                    <td >Maquina #1</td>
-                    <td >Maquina #2</td>
-                    <td >Maquina #3</td>
+                    <td>Maquina #1</td>
+                    <td>Maquina #2</td>
+                    <td>Maquina #3</td>
                     <tr>
                         <td>IPv4 Addres:</td>
                         <td>172.15.110.30</td>
@@ -426,21 +469,27 @@
                         <td colspan="3">172.15.162.5</td>
                     </tr>
                 </table>
-                <section class="checkboxAll router Contraseñas_Admin" id="Ayudante">
-                    <input type="checkbox" id="ipv4_machine1_r3" name="ipv4_machine1_r3"><label for="ipv4_machine1_r3">M1 Dirección IPV4</label>
-                    <input type="checkbox" id="ipv4_machine2_r3" name="ipv4_machine2_r3"><label for="ipv4_machine2_r3">M2 Dirección IPV4</label>
-                    <input type="checkbox" id="ipv4_machine3_r3" name="ipv4_machine3_r3"><label for="ipv4_machine3_r3">M3 Dirección IPV4</label>                    
-                    <input type="checkbox" id="sub_mask_machine_r3" name="sub_mask_machine_r3"><label for="sub_mask_machine_r3">Subnet Mask</label>
-                    <input type="checkbox" id="def_gateway_machine_r3" name="def_gateway_machine_r3"><label for="def_gateway_machine_r3">Default Gateway</label>                                                                              
+                <!-- <section class="checkboxAll router Contraseñas_Admin" id="Ayudante">
+                    <input type="checkbox" id="ipv4_machine1_r3" name="ipv4_machine1_r3"><label
+                        for="ipv4_machine1_r3">M1 Dirección IPV4</label>
+                    <input type="checkbox" id="ipv4_machine2_r3" name="ipv4_machine2_r3"><label
+                        for="ipv4_machine2_r3">M2 Dirección IPV4</label>
+                    <input type="checkbox" id="ipv4_machine3_r3" name="ipv4_machine3_r3"><label
+                        for="ipv4_machine3_r3">M3 Dirección IPV4</label>
+                    <input type="checkbox" id="sub_mask_machine_r3" name="sub_mask_machine_r3"><label
+                        for="sub_mask_machine_r3">Subnet Mask</label>
+                    <input type="checkbox" id="def_gateway_machine_r3" name="def_gateway_machine_r3"><label
+                        for="def_gateway_machine_r3">Default Gateway</label>
                     <aside>
                         <input type="text" id="txtMachinesR3" name="txtMachinesR3">
                         <button type="submit">Actualizar</button>
                     </aside>
-                </section>
+                </section> -->
             </div>
 
         </section>
     </div>
     <script type="" src="script.js"></script>
 </body>
+
 </html>

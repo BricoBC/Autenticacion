@@ -305,11 +305,14 @@ function showSesion(person, hora) {
 }
 
 function whoStartSesion(persona) {
+    let isShowImagen = !imag.classList.contains('inactive');
+    imag.classList.remove('inactive');
     switch (persona) {
         case 'Administrador':
-
+            btnCloseImag.classList.remove('inactive');
             break;
         case 'Ayudante':
+            btnCloseImag.classList.remove('inactive');
             for (let i = 0; i < contrasena.length; i++) {
                 contrasena[i].style.display = 'none'
             }
@@ -318,8 +321,11 @@ function whoStartSesion(persona) {
             btnRouterUno.classList.add('inactive')
             btnRouterDos.classList.add('inactive')
             btnRouterTres.classList.add('inactive')
+            btnCloseImag.classList.add('inactive');
+
             break;
     }
+
 }
 
 function time() {
