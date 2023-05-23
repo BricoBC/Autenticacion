@@ -416,6 +416,7 @@ function changeValueR1() {
     if (chckBxR1PassSec.checked) {
         config_red.router.pass_secret[0] = txtBxR1.value
     }
+    txtBxR1.value = ' ';
     updateRouterUno()
 }
 
@@ -423,6 +424,7 @@ function changeValueR2() {
     console.log(12)
     if (chckBxR1R2Ip.checked) {
         config_red.router.ip_v4[1][0] = txtBxR2.value
+        chckBxR1R2Ip.checked = false;
     }
     if (chckBxR1R2Pass04.checked) {
         config_red.router.pass_vty[1][0] = txtBxR2.value
@@ -452,26 +454,30 @@ function changeValueR2() {
     if (chckBxR2R3PassSec.checked) {
         config_red.router.pass_secret[1][1] = txtBxR2.value
     }
+    txtBxR2.value = ' ';
     updateRouterDos()
 }
 
 function changeValueR3() {
     if (chckBxR3Ip.checked) {
-        config_red.router.ip_v4[0] = txtBxR3.value
+        config_red.router.ip_v4[2] = txtBxR3.value
+        // chckBxR3Ip.checked = false;
     }
     if (chckBxR3Pass04.checked) {
-        config_red.router.pass_vty[0] = txtBxR3.value
+        config_red.router.pass_vty[2] = txtBxR3.value
+        // chckBxR3Pass04.checked = false;
     }
     if (chckBxR3PassCon.checked) {
-        config_red.router.pass_con[0] = txtBxR3.value
+        config_red.router.pass_con[2] = txtBxR3.value
     }
     if (chckBxR3Pass.checked) {
-        config_red.router.pass[0] = txtBxR3.value
+        config_red.router.pass[2] = txtBxR3.value
     }
     if (chckBxR3PassSec.checked) {
-        config_red.router.pass_secret[0] = txtBxR3.value
+        config_red.router.pass_secret[2] = txtBxR3.value
     }
     updateRouterTres()
+    txtBxR3.value = ' ';
 }
 
 function toggleImag() {
