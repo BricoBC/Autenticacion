@@ -230,6 +230,8 @@ document.addEventListener("change", (e) => {
 });
 
 login_view.addEventListener("click", (e) => {
+    username.style.borderColor = '';
+    password.style.borderColor = '';
     if (e.target === $submit) {
         if (isValidLogin(username, password)) {
             e.preventDefault();
@@ -239,7 +241,11 @@ login_view.addEventListener("click", (e) => {
             password.value = "";
         }
         else {
-            alert('Revisa tu usuario y contraseña')
+            username.style.borderColor = 'red';
+            password.style.borderColor = 'red';
+            username.value = '';
+            password.value = '';
+            // alert('Revisa tu usuario y contraseña')
         }
     }
 });
@@ -275,6 +281,10 @@ btnStar.addEventListener('click', () => {
 });
 
 btnCloseSesion.addEventListener('click', () => {
+    let isNotShowImagen = imag.classList.contains('inactive');
+    if (isNotShowImagen) {
+        toggleImag()
+    }
     openView(login_view);
     document.title = "Iniciar Sesion";
 });
@@ -305,24 +315,33 @@ function showSesion(person, hora) {
 }
 
 function whoStartSesion(persona) {
-    let isShowImagen = !imag.classList.contains('inactive');
     imag.classList.remove('inactive');
     switch (persona) {
         case 'Administrador':
             btnCloseImag.classList.remove('inactive');
+            for (let i = 0; i < contrasena.length; i++) {
+                contrasena[i].style.display = ''
+            }
+            btnRouterUno.classList.remove('inactive');
+            btnRouterDos.classList.remove('inactive');
+            btnRouterTres.classList.remove('inactive');
+            btnCloseImag.classList.remove('inactive');
             break;
         case 'Ayudante':
+            btnRouterUno.classList.remove('inactive');
+            btnRouterDos.classList.remove('inactive');
+            btnRouterTres.classList.remove('inactive');
+            btnCloseImag.classList.remove('inactive');
             btnCloseImag.classList.remove('inactive');
             for (let i = 0; i < contrasena.length; i++) {
                 contrasena[i].style.display = 'none'
             }
             break;
         case 'Usuario':
-            btnRouterUno.classList.add('inactive')
-            btnRouterDos.classList.add('inactive')
-            btnRouterTres.classList.add('inactive')
+            btnRouterUno.classList.add('inactive');
+            btnRouterDos.classList.add('inactive');
+            btnRouterTres.classList.add('inactive');
             btnCloseImag.classList.add('inactive');
-
             break;
     }
 
