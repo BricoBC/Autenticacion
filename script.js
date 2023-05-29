@@ -208,7 +208,7 @@ const arrAllViews = [first_view, second_view, login_view]
 
 let phrases = [
     'SOY EL INGENIERO BRUNO NICOLÁS',
-    'Soy Eduardo García Marín, el ayudante',
+    'SOY EDUARDO GARCÍA MARÍN EL AYUDANTE',
     'USUARIO'
 ]
 let users = [
