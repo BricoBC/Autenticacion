@@ -207,9 +207,9 @@ const recognition = new webkitSpeechRecognition();
 const arrAllViews = [first_view, second_view, login_view]
 
 let phrases = [
-    'Soy el ingeniero Bruno Nicolás.',
-    'Soy Eduardo García Marín, el ayudante.',
-    'Usuario.'
+    'SOY EL INGENIERO BRUNO NICOLÁS',
+    'Soy Eduardo García Marín, el ayudante',
+    'USUARIO'
 ]
 let users = [
     'Administrador',
@@ -291,9 +291,9 @@ btnCloseSesion.addEventListener('click', () => {
 
 recognition.onresult = (event) => {
     const texto = event.results[event.results.length - 1][0].transcript;
-    console.log(texto)
+    console.log(texto.toUpperCase())
     for (let i = 0; i < phrases.length; i++) {
-        if (texto == phrases[who]) {
+        if (texto.toUpperCase() == phrases[who]) {
             showSesion(users[who], time())
             document.title = "Bienvenido " + users[who];
             whoStartSesion(users[who]);
@@ -301,7 +301,7 @@ recognition.onresult = (event) => {
         else {
             txtSpeak.style.color = 'red'
             txtSpeak.style.textDecoration = 'line-through'
-            txtSpeak.innerText = texto;
+            txtSpeak.innerText = texto.toUpperCase();
         }
     }
 
